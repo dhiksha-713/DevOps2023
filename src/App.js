@@ -7,6 +7,7 @@ import Gallery from './components/Gallery';
 import Developers from './components/Developers'
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
         </Routes>
       </Router>
 
-      
+      <Footer/>
     </>
   );
 }
