@@ -1,4 +1,5 @@
 import React from 'react'
+import './style/Gallery.css';
 import demo3 from './images/demo3.jpeg';
 import demo4 from './images/demo4.jpeg';
 import demo5 from './images/demo5.jpeg';
