@@ -1,7 +1,8 @@
 import React from 'react';
 import Chinmayi from './images/chinmayi.jpeg';
 import Deeksha from './images/deeksha.jpeg';
-import Dhiksha from './images/dhiksha.jpeg'
+import Dhiksha from './images/dhiksha.jpeg';
+import './style/Developers.css';
 
 export default function Developers() {
   return (
