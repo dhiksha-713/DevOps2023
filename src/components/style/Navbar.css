@@ -34,39 +34,50 @@
     width: 10%;
     /* width: 100px; */
     padding-left: 20px;
+    background-color: blanchedalmond;
 }
 .saya{
     font-weight: 900;
     font-size: 35px;
+    background-color: rgb(97, 112, 125);
 }
 .sayatitle{
+    padding-left: 3%;
     color: #fdff00;
     text-align: center;
     width: 68%;
-    /* background-color: rgb(134, 6, 6); */
+    background-color: rgb(134, 6, 6);
 }
 .slogan{
-
+    background-color: rgb(6, 104, 23);
     font-size: 14px;
     font-weight: 200;
 }
 .cart{
     width: 5%;
-    /* background-color: aquamarine; */
+    background-color: aquamarine;
     padding-top: 15px;
     padding-left: 5px;
     padding-right: 7px;
     color: white;
 }
 .login{
+    background-color: blue;
     width: 17%;
     padding-top: 20px;
-    text-align: right;
-    padding-right: 35px;
+    /* padding-right: 35px; */
 }
 .log{
     font-size: 18px;
     font-weight: 500;
+}
+@media screen and (max-width: 910px){
+    .sayatitle{
+        width: 67%;
+    } 
+    .login{
+        width: 18%;
+    }
 }
 
 .nav-links{
