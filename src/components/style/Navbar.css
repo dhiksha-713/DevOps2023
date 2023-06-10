@@ -5,14 +5,68 @@
 }
 .nav{
     display: flex;
-    background-color: rgb(255, 166, 0);
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 45px;
+    /* height: 120px; */
     width: 100%;
     color: white;
     position: fixed;
     top: 0;
+}
+.nav-top{
+    margin: 0;
+    width: 100%;
+    /* position: fixed; */
+    height: 100px;
+    padding: 0px;
+    background-color: green;
+    display: flex;
+    align-items: center;
+}
+.nav-bottom{
+    background-color: rgb(255, 166, 0);
+    height: 45px;
+    width: 100%;
+}
+
+.logo{
+    width: 10%;
+    /* width: 100px; */
+    padding-left: 20px;
+}
+.saya{
+    font-weight: 900;
+    font-size: 35px;
+}
+.sayatitle{
+    color: #fdff00;
+    text-align: center;
+    width: 68%;
+    /* background-color: rgb(134, 6, 6); */
+}
+.slogan{
+
+    font-size: 14px;
+    font-weight: 200;
+}
+.cart{
+    width: 5%;
+    /* background-color: aquamarine; */
+    padding-top: 15px;
+    padding-left: 5px;
+    padding-right: 7px;
+    color: white;
+}
+.login{
+    width: 17%;
+    padding-top: 20px;
+    text-align: right;
+    padding-right: 35px;
+}
+.log{
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .nav-links{
@@ -70,7 +124,7 @@
         font-size: 20px;
         color: white;
         background-color: rgb(255, 166, 0);
-        top: 15px;
+        top: 110px;
         right: 25px;
     }
 }

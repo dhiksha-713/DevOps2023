@@ -1,6 +1,6 @@
 .section__padding
 {
-    padding: 2rem 2rem;
+    padding: 0.2rem 2rem 0 2rem;
 }
 
 .footer
@@ -25,7 +25,6 @@
     flex-wrap: wrap ;
     width: 100%;
     text-align: left;
-    margin-bottom: 1rem;
 }
 
 .f_footer_links_div
@@ -51,7 +50,7 @@ a{
 
 .f_footer_links_div p
 {
-    font-size: 12px;
+    font-size: 15px;
     line-height: 15px;
     margin-bottom: 0.5rem 0;
     cursor: pointer;

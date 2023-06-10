@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import Logo from './images/logo.png';
 import "bootstrap/dist/css/bootstrap.css";
 import "./style/Navbar.css";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,14 +10,16 @@ function Navbar() {
 
   return (
     <>
-        {/* <div className="nav-top">
-            <div className="logo" id="top-nav"><a href="index.php"><img src=".//images/logo.png" height="60px"/></a></div>
-            <div className="sayatitle" id="top-nav"><span class="saya">SAYA ENTERPRISES</span><br/><span class="slogan">Sales and Services of Agricultural Machineries and Implements</span> </div>
-            <div className="cart" id="top-nav"><a href="./cart.php"><i class="fa-solid fa-cart-shopping fa-2x"></i></a></div>
-            <div className="login" id="top-nav"><h4 class="log"><a href="login.php">LOGIN / SIGN UP</a></h4></div>
-        </div> */}
+        
 
       <nav className="nav">
+      <div className="nav-top">
+            <div className="logo" id="top-nav"><a href="index.php"><img src={Logo} height="60px" alt="logo"/></a></div>
+            <div className="sayatitle" id="top-nav"><span className="saya">SAYA ENTERPRISES</span><br/><span class="slogan">Sales and Services of Agricultural Machineries and Implements</span> </div>
+            <div className="cart" id="top-nav"><a href="./cart.php"><i className="fa fa-shopping-cart fa-2x" ></i></a></div>
+            <div className="login" id="top-nav"><h4 ><a href="/" className="log">LOGIN / SIGN UP</a></h4></div>
+      </div>
+      <div className="nav-bottom">
       <button className="mobile-menu-icon"
         onClick={()=>setIsMobile(!isMobile)}
         >
@@ -45,6 +48,7 @@ function Navbar() {
             <li>DEVELOPERS</li>
           </Link>
         </ul>
+      </div>
       </nav>
     </>
   );
