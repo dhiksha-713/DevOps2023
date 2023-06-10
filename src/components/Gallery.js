@@ -5,6 +5,7 @@ import demo5 from './images/demo5.jpeg';
 import demo6 from './images/demo6.jpeg';
 import demo2 from './images/demo6.jpeg';
 import demo1 from './images/demo6.jpeg';
+import './Gallery.js';
 
 
 export default function Gallery() {
