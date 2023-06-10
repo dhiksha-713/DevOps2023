@@ -47,6 +47,12 @@ function Navbar() {
           <Link to='/developers' className="developers">
             <li>DEVELOPERS</li>
           </Link>
+          <Link to='#' className="cart-bottom">
+            <li>CART</li>
+          </Link>
+          <Link to='#' className="login-bottom">
+            <li>LOGIN / SIGN UP</li>
+          </Link>
         </ul>
       </div>
       </nav>

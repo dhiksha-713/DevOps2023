@@ -32,37 +32,30 @@
 
 .logo{
     width: 10%;
-    /* width: 100px; */
     padding-left: 20px;
-    background-color: blanchedalmond;
 }
 .saya{
     font-weight: 900;
     font-size: 35px;
-    background-color: rgb(97, 112, 125);
 }
 .sayatitle{
     padding-left: 3%;
     color: #fdff00;
     text-align: center;
     width: 68%;
-    background-color: rgb(134, 6, 6);
 }
 .slogan{
-    background-color: rgb(6, 104, 23);
     font-size: 14px;
     font-weight: 200;
 }
 .cart{
     width: 5%;
-    background-color: aquamarine;
     padding-top: 15px;
     padding-left: 5px;
     padding-right: 7px;
     color: white;
 }
 .login{
-    background-color: blue;
     width: 17%;
     padding-top: 20px;
     /* padding-right: 35px; */
@@ -71,12 +64,26 @@
     font-size: 18px;
     font-weight: 500;
 }
-@media screen and (max-width: 910px){
+@media screen and (max-width: 850px){
+    .logo{
+        width: 10%;
+    }
     .sayatitle{
-        width: 67%;
+        width: 90%;
     } 
-    .login{
-        width: 18%;
+    .cart, .login{
+        display: none;
+    }
+}
+@media screen and (max-width: 510px){
+    .logo{
+        display: none;
+    }
+    .sayatitle{
+        width: 100%;
+    } 
+    .cart, .login{
+        display: none;
     }
 }
 
@@ -90,7 +97,7 @@
     margin: 0;
 }
 
-.home, .about, .products, .branch, .gallery, .developers{
+.home, .about, .products, .branch, .gallery, .developers, .cart-bottom, .login-bottom{
     text-decoration: none;
     color: white;
     padding: 10px 15px;
@@ -99,7 +106,9 @@
     font-size: 15px;
     font-weight: 700;
 }
-
+.cart-bottom, .login-bottom{
+    display: none;
+}
 .mobile-menu-icon{
     display: none;
     width: 45px;
@@ -118,16 +127,20 @@
         list-style: none;
         background-color: rgb(255, 166, 0);
         left: 0;
-        top: 45px;
+        top: 100px;
         width: 100%;
         transition: all 0.5s ease-out;
     }
     .home, .about, .products, .branch, .gallery, .developers{
-        text-decoration: none;
-        color: white;
         padding: 10px;
         width: 100%;
         transition: all 0.5s ease-out;       
+    }
+    .cart-bottom, .login-bottom{
+        display: inline;
+        width: 100%;
+        padding: 10px;
+
     }
     .mobile-menu-icon{
         display: block;
