@@ -1,10 +1,12 @@
 import React from 'react'
+import './style/Gallery.css';
 import demo3 from './images/demo3.jpeg';
 import demo4 from './images/demo4.jpeg';
 import demo5 from './images/demo5.jpeg';
 import demo6 from './images/demo6.jpeg';
 import demo2 from './images/demo6.jpeg';
 import demo1 from './images/demo6.jpeg';
+import './Gallery.js';
 
 
 export default function Gallery() {
@@ -24,13 +26,13 @@ const scrollright =() =>{
         <h1>GALLERY</h1>
       </div>
 
-    <div className="conatiner-gallery" id="conatiner-gallery">
+      <div className="content-img-container" id="content-img-container">
         <div>
-            <button className="icon" onClick={scrollright}><i className="fas fa-angle-double-left fa-dice-d20"></i></button>
+            <button className="icon" onClick={scrollright}><i className="fas fa-angle-double-left"></i></button>
         </div>
-        <div className="gallery">
+        <div className="content-gallery">
             <div className="scroll" id="scroll">
-                <div className="photo">
+            <div className="photo">
                     <img className="imgs" src={demo3} alt='Loading...'/>
                 </div>
                 <div className="photo">
