@@ -24,12 +24,12 @@ export default function Products() {
     <div className="container-product-fluid" id="container-product-fluid">
         <div className="container-product">
             <center>
-            {/* <form>
+            <form>
                 <i className="fas fa-search"></i>
                 <div className="search">
                     <input type="text" id="find" placeholder="search" onKeyUp={search}/>
                 </div>
-            </form> */}
+            </form>
             </center>
             <div className="category">
                 <h2>CATEGORIES</h2>
