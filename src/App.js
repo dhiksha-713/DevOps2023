@@ -6,15 +6,17 @@ import Branches from './components/Branches';
 import Gallery from './components/Gallery';
 import Developers from './components/Developers'
 import Navbar from './components/Navbar';
+import Login from './components/Login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Footer from './components/Footer';
 
 function App() {
+  const loc = window.location.pathname;
   return (
     <>
       <Router>
       
-      <Navbar />
+      <div>{loc!=='/login'  && <Navbar></Navbar>}</div>
         <Routes>
           <Route path='/' Component = {Home} exact></Route>
           <Route path='/about' Component={About} exact></Route>
@@ -22,6 +24,7 @@ function App() {
           <Route path='/branch' Component = {Branches} exact></Route>
           <Route path='/gallery' Component={Gallery} exact></Route>
           <Route path='/developers' Component={Developers} exact></Route>
+          <Route path='/login' Component={Login} exact></Route>
         </Routes>
       </Router>
 

@@ -28,7 +28,7 @@ function Navbar() {
               <i className="fa fa-shopping-cart fa-2x"></i>
             </Link>
           </div>
-          <div className="login" id="top-nav"><h4 className="log"><Link to={window.location.origin}>
+          <div className="login" id="top-nav"><h4 className="log"><Link to="/login">
           LOGIN / SIGN UP
             </Link>
             </h4></div>
@@ -70,7 +70,7 @@ function Navbar() {
             <Link to="#" className="cart-bottom">
               <li>CART</li>
             </Link>
-            <Link to="#" className="login-bottom">
+            <Link to="/login" className="login-bottom">
               <li>LOGIN / SIGN UP</li>
             </Link>
           </ul>
