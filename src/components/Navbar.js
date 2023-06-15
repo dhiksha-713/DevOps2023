@@ -12,9 +12,9 @@ function Navbar() {
       <nav className="nav">
         <div className="nav-top">
           <div className="logo" id="top-nav">
-            <a href="index.php">
-              <img src={Logo} height="60px" alt="logo" />
-            </a>
+          <Link to="/" className="home">
+          <img src={Logo} height="60px" alt="logo" />
+            </Link>
           </div>
           <div className="sayatitle" id="top-nav">
             <span className="saya">SAYA ENTERPRISES</span>
