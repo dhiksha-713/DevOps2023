@@ -1,9 +1,10 @@
 import React from 'react'
 import './style/Footer.css'
+import PropTypes from 'prop-types'
 
-export default function Footer() {
+export default function Footer(props) {
   return (
-    <div className="footer">
+    props.flag&&<div className="footer">
         <div className="f_footer section__padding">
             <div className="f_footer-links">
                 <div className="f_footer_links_div">

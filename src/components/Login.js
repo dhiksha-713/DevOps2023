@@ -3,8 +3,9 @@ import './style/Login.css';
 import './style/Login2.css';
 
 export default function Login() {
+    
   return (
-    <div>
+    <div className="body-login" >
       <div className="container">
         <form className="form" id="login" action="connect.php" method="post">
             <h1 className="form__title">Login</h1>
