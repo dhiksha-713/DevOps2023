@@ -45,7 +45,6 @@ import Navbar from './components/Navbar';
 import Login from './components/Login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Footer from './components/Footer';
-import Login from './components/Login';
 
 
 function App() {
@@ -65,7 +64,6 @@ function App() {
           <Route path='/gallery' element={<Gallery/>}  exact></Route>
           <Route path='/developers' element={<Developers/>}  exact></Route>
           <Route path='/login' element={<Login/>}  exact></Route>
-
         </Routes>
         <Footer flag={flag} handleFlag={handleFlag}/>
       </Router>
