@@ -6,7 +6,6 @@ import Branches from './components/Branches';
 import Gallery from './components/Gallery';
 import Developers from './components/Developers'
 import Navbar from './components/Navbar';
-import Login from './components/Login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Footer from './components/Footer';
 

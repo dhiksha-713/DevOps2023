@@ -156,7 +156,7 @@ function Navbar(props) {
             <Link to="#" className="cart-bottom">
               <li>CART</li>
             </Link>
-            <Link to="#" className="login-bottom">
+            <Link to="/login" className="login-bottom">
               <li>LOGIN / SIGN UP</li>
             </Link>
           </ul>
