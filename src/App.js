@@ -1,82 +1,59 @@
-// import './App.css';
-// import Home from './components/Home';
-// import About from './components/AboutUs';
-// import Products from './components/Products';
-// import Branches from './components/Branches';
-// import Gallery from './components/Gallery';
-// import Developers from './components/Developers'
-// import Navbar from './components/Navbar';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-// import Footer from './components/Footer';
-
-// function App() {
-//   return (
-//     <>
-//       <Router>
-//       <Navbar />
-      
-//         <Routes>
-        
-//           <Route path='/' Component = {Home} exact></Route>
-//           <Route path='/about' Component={About} exact></Route>
-//           <Route path='/products' Component = {Products} exact></Route>
-//           <Route path='/branch' Component = {Branches} exact></Route>
-//           <Route path='/gallery' Component={Gallery} exact></Route>
-//           <Route path='/developers' Component={Developers} exact></Route>
-//         </Routes>
-//       </Router>
-      
-
-//       <Footer/>
-//     </>
-//   );
-// }
-
-
-// export default App;
-import Home from './components/Home';
-import About from './components/AboutUs';
-import { useState } from 'react';
-import Products from './components/Products';
-import Branches from './components/Branches';
-import Gallery from './components/Gallery';
-import Developers from './components/Developers'
-import Navbar from './components/Navbar';
-import Login from './components/Login';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Footer from './components/Footer';
-
+import Home from "./components/Home";
+import About from "./components/AboutUs";
+import { useState } from "react";
+import Products from "./components/Products";
+import Branches from "./components/Branches";
+import Gallery from "./components/Gallery";
+import Developers from "./components/Developers";
+import Navbar from "./components/Navbar";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Footer from "./components/Footer";
 
 function App() {
   const [flag, setFlag] = useState(true);
-  const handleFlag= () => {
+  const handleFlag = () => {
     setFlag(false);
   };
+
+  const [loginForm, setLoginForm] = useState("login");
+
+  const toggleForm = (formName) => {
+    console.log(formName);
+    setLoginForm(formName);
+  };
+
   return (
     <>
       <Router>
-        <Navbar flag={flag} handleFlag={handleFlag}/>
+        <Navbar flag={flag} handleFlag={handleFlag} />
         <Routes>
-          <Route path='/' element={<Home/>} exact></Route>
-          <Route path='/about' element={<About/>} exact></Route>
-          <Route path='/products' element={<Products/>}  exact></Route>
-          <Route path='/branch' element={<Branches/>}  exact></Route>
-          <Route path='/gallery' element={<Gallery/>}  exact></Route>
-          <Route path='/developers' element={<Developers/>}  exact></Route>
-          <Route path='/login' element={<Login/>}  exact></Route>
+          <Route path="/" element={<Home />} exact></Route>
+          <Route path="/about" element={<About />} exact></Route>
+          <Route path="/products" element={<Products />} exact></Route>
+          <Route path="/branch" element={<Branches />} exact></Route>
+          <Route path="/gallery" element={<Gallery />} exact></Route>
+          <Route path="/developers" element={<Developers />} exact></Route>
+          <Route
+            path="/login"
+            element={
+              (loginForm === "login" )? (
+                <Login onFormSwitch={toggleForm}></Login>
+              ) : (
+                <Signup onFormSwitch={toggleForm}></Signup>
+              )
+            }
+            exact
+          ></Route>
         </Routes>
-        <Footer flag={flag} handleFlag={handleFlag}/>
+        <Footer flag={flag} handleFlag={handleFlag} />
       </Router>
-      
-
-     
     </>
   );
 }
 
-
 export default App;
-
 
 // import Home from './components/Home';
 // import About from './components/AboutUs';
@@ -88,7 +65,8 @@ export default App;
 // import React, { useState } from "react";
 // import './App.css';
 
-{/* <Routes>
+{
+  /* <Routes>
         <Route path='/' Component={Home}>
           <Home></Home>
         </Route>
@@ -107,4 +85,5 @@ export default App;
         <Route path='/developers' Component={Developers}>
           <Home></Home>
         </Route>
-      </Routes> */}
+      </Routes> */
+}
