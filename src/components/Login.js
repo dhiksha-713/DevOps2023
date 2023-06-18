@@ -1,10 +1,9 @@
 import React from 'react';
 import './style/Login.css';
-import './style/Login2.css';
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 // import './scripts/LoginScript';
 
-export default function Login() {
+export default function Login(props) {
     function setFormMessage(formElement, type, message) {
         const messageElement = formElement.querySelector(".form__message");
         messageElement.textContent = message;
@@ -79,32 +78,8 @@ export default function Login() {
                 <a href="#" className="form__link">Forgot your password?</a> -->
             </p> */}
             <p className="form__text">
-                <Link className="form__link" to="/login" id="linkCreateAccount">Don't have an account? Create account
-                </Link>
-            </p>
-        </form>
-        <form className="form form--hidden" id="createAccount" action="qonnect.php" method="post">
-            <h1 className="form__title">Create Account</h1>
-            <div className="form__message form__message--error"></div>
-            <div className="form__input-group">
-                <input type="text" id="signupUsername username" className="form__input" autofocus placeholder="Username"  name="username"/>
-                <div className="form__input-error-message"></div>
-            </div>
-            <div className="form__input-group">
-                <input type="text" className="form__input" autofocus placeholder="Email Address" pattern="[a-z]+.cs+21+@+bmsce.ac.in" id="email" name="email"/>
-                <div className="form__input-error-message"></div>
-            </div>
-            <div className="form__input-group">
-                <input type="password" className="form__input" autofocus placeholder="Password" id="password" name="password"/>
-                <div className="form__input-error-message"></div>
-            </div>
-            <div className="form__input-group">
-                <input type="password" className="form__input" autofocus placeholder="Confirm password" id="cpassword" name="cpassword"/>
-                <div className="form__input-error-message"></div>
-            </div>
-            <button className="form__button" type="submit">Continue</button>
-            <p className="form__text">
-                <Link className="form__link" to='/login' id="linkLogin">Already have an account? Sign in</Link>
+                <button className="form__link" id="linkCreateAccount" onClick={() => props.onFormSwitch('register')}>Don't have an account? Create account
+                </button>
             </p>
         </form>
     </div>
