@@ -4,14 +4,14 @@ import React, { useState } from "react";
 import Logo from "./images/logo.png";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style/Navbar.css";
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 function Navbar(props) {
   const [isMobile, setIsMobile] = useState(false);
 
   return (
-    props.flag && <>
+    <>
       <nav className="nav">
         <div className="nav-top">
           <div className="logo" id="top-nav">
@@ -31,7 +31,7 @@ function Navbar(props) {
               <i className="fa fa-shopping-cart fa-2x"></i>
             </Link>
           </div>
-          <div className="login" id="top-nav"><h4 className="log"><Link to='/login' onClick={props.handleFlag}>
+          <div className="login" id="top-nav"><h4 className="log"><Link to='/login' >
           LOGIN / SIGN UP
             </Link>
             </h4></div>
