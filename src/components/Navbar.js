@@ -22,7 +22,7 @@ function Navbar(props) {
           <div className="sayatitle" id="top-nav">
             <span className="saya">SAYA ENTERPRISES</span>
             <br />
-            <span class="slogan">
+            <span className="slogan">
               Sales and Services of Agricultural Machineries and Implements
             </span>{" "}
           </div>

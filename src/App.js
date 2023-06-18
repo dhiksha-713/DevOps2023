@@ -8,14 +8,22 @@ import Developers from "./components/Developers";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Footer from "./components/Footer";
+import { computeHeadingLevel } from "@testing-library/react";
 
 function App() {
   const [flag, setFlag] = useState(true);
+
+  const pathname = window.location.pathname;
   const handleFlag = () => {
-    setFlag(false);
-  };
+      setFlag(false);
+      console.log(23)    }
+
+    const handleLoad = () => {
+      if(pathname==='/login')
+        setFlag(false);
+    };
 
   const [loginForm, setLoginForm] = useState("login");
 
@@ -25,9 +33,9 @@ function App() {
   };
 
   return (
-    <>
-      <Router>
-        <Navbar flag={flag} handleFlag={handleFlag} />
+    <div className="item" onLoad={handleLoad}>
+      <Router >
+        <Navbar flag={flag} handleFlag={handleFlag}  />
         <Routes>
           <Route path="/" element={<Home />} exact></Route>
           <Route path="/about" element={<About />} exact></Route>
@@ -49,7 +57,7 @@ function App() {
         </Routes>
         <Footer flag={flag} handleFlag={handleFlag} />
       </Router>
-    </>
+    </div>
   );
 }
 
@@ -65,7 +73,7 @@ export default App;
 // import React, { useState } from "react";
 // import './App.css';
 
-{
+
   /* <Routes>
         <Route path='/' Component={Home}>
           <Home></Home>
@@ -86,4 +94,4 @@ export default App;
           <Home></Home>
         </Route>
       </Routes> */
-}
+
