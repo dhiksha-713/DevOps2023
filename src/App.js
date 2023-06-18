@@ -46,7 +46,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} exact></Route>
         <Route path="/developers" element={<Developers />} exact></Route>
       </Routes>
-      <Footer />
+      {!isLoginPage && <Footer />} 
     </>
   );
 }

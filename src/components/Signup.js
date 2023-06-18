@@ -4,7 +4,7 @@ import './style/Signup.css';
 
 export default function Signup(props) {
   return (
-    <div>
+    <div className='sign-container'>
       <form className="form form--hidden" id="createAccount" action="qonnect.php" method="post">
             <h1 className="form__title">Create Account</h1>
             <div className="form__message form__message--error"></div>
