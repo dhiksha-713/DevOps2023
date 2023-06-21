@@ -16,7 +16,7 @@ function Navbar(props) {
         <div className="nav-top">
           <div className="logo" id="top-nav">
           <Link to="/" className="home">
-          <img src={Logo} height="60px" alt="logo" />
+          <img src='%PUBLIC_URL%./images/logo.png' height="60px" alt="logo" />
             </Link>
           </div>
           <div className="sayatitle" id="top-nav">
