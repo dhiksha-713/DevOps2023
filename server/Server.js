@@ -1,5 +1,5 @@
 const express = require("express")
-const collection  = require("./db/logindb")
+const collection  = require("./db/mongo")
 const cors = require("cors")
 const app = express()
 app.use(express.json())
