@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './style/Login.css';
+import axios from 'axios';
 // import {Link} from 'react-router-dom'
-// import './scripts/LoginScript';
+
 
 export default function Login(props) {
     function setFormMessage(formElement, type, message) {
@@ -57,23 +58,36 @@ export default function Login(props) {
             });
         });
     });
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    async function submit(e){
+        e.preventDefault();
+
+        try {
+            await axios.post("http://localhost:3000/login",{email,password})
+        } catch (error) {
+            console.log(error)
+        }
+    }
     
     
   return (
     <div className="body-login" >
       <div className="login-container">
-        <form className="form" id="login" action="connect.php" method="post">
+        <form className="form" id="login" >
             <h1 className="form__title">Login</h1>
             <div className="form__message form__message--error"></div>
             <div className="form__input-group">
-                <input type="text" className="form__input" autofocus placeholder="Email" pattern="[a-z]+.cs+21+@+bmsce.ac.in" id="email" name="email" required/>
+                <input type="email" className="form__input" autofocus placeholder="Email" pattern="[a-z]+.cs+21+@+bmsce.ac.in" id="email" name="email" onChange={(e)=>{setEmail(e.target.value)}} required/>
                 <div className="form__input-error-message"></div>
             </div>
             <div className="form__input-group">
-                <input type="password" className="form__input" autofocus placeholder="Password" id="password" name="password" required/>
+                <input type="password" className="form__input" autofocus placeholder="Password" id="password" name="password" onChange={(e)=>{setPassword(e.target.value)}} required/>
                 <div className="form__input-error-message"></div>
             </div>
-            <button className="form__button" type="submit"><a href="./">Continue</a></button>
+            <button className="form__button" type="submit" onClick={submit}><a href="./">Continue</a></button>
             {/* <!-- <p className="form__text">
                 <a href="#" className="form__link">Forgot your password?</a> -->
             </p> */}
