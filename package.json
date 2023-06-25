@@ -1,0 +1,22 @@
+{
+  "name": "proj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server2.js",
+  "scripts": {
+    "start": "node server/server2.js",
+    "server": "nodemon server/server2.js",
+    "fronthand": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run fronthand\"",
+    "data:import": "node server/seederScript"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.3.1"
+  }
+}
