@@ -2,10 +2,10 @@
   "name": "proj",
   "version": "1.0.0",
   "description": "",
-  "main": "server2.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node server/server2.js",
-    "server": "nodemon server/server2.js",
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js",
     "fronthand": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run fronthand\"",
     "data:import": "node server/seederScript"

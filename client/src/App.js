@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/AboutUs";
 import Products from "./components/Products";
@@ -23,30 +28,23 @@ function App() {
 
   // Check if the current location is the login page
   const isLoginPage = currentLocation.pathname === "/login";
+  const isSignUpPage = currentLocation.pathname === "/signup";
 
   return (
     <>
-      {!isLoginPage && <Navbar />} 
+      {(!isLoginPage && !isSignUpPage)&& <Navbar />}
       <Routes>
-        <Route
-          path="/login"
-          element={
-            loginForm === "login" ? (
-              <Login onFormSwitch={toggleForm} />
-            ) : (
-              <Signup onFormSwitch={toggleForm} />
-            )
-          }
-          exact
-        ></Route>
-        <Route path="/" element={<Home />} exact></Route> {/* Added route for the root path */}
+        <Route path="/login" element={<Login></Login>} exact></Route>
+        <Route path="/signup" element={<Signup></Signup>} exact></Route>
+        <Route path="/" element={<Home />} exact></Route>{" "}
+        {/* Added route for the root path */}
         <Route path="/about" element={<About />} exact></Route>
         <Route path="/products" element={<Products />} exact></Route>
         <Route path="/branch" element={<Branches />} exact></Route>
         <Route path="/gallery" element={<Gallery />} exact></Route>
         <Route path="/developers" element={<Developers />} exact></Route>
       </Routes>
-      {!isLoginPage && <Footer />} 
+      {(!isLoginPage && !isSignUpPage) && <Footer />}
     </>
   );
 }
