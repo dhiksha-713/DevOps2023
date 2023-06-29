@@ -1,23 +1,26 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const cors = require("cors");
-const productRoutes = require("./routes/productRoutes");
 const connectDB = require("./config/db");
-const cookiParser = require("cookie-parser")
+connectDB();
 // const User = require("./models/User");
 const userRoutes = require('./routes/userRoutes');
+const productRoutes = require("./routes/productRoutes");
+
+const cors = require("cors");
+const cookiParser = require("cookie-parser")
+
 // const authRoutes = require('./routes/authRoutes');
 
 
-connectDB();
+
 
 
 
 app.use(express.json());
 app.use(cookiParser());
 app.use(cors());
-
+app.use(userRoutes);
 // app.get("/",(req,res)=>{
 //     res.status(201).json("Server created")
 // })
@@ -37,7 +40,7 @@ app.use(cors());
 
 // }) 
 //routes
-app.use(userRoutes);
+// app.use(userRoutes);
 // app.use("/api/auth",authRoutes);
 
 // app.post('/signup',(req,res) =>{
