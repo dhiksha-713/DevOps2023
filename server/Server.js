@@ -4,9 +4,10 @@ const app = express();
 const cors = require("cors");
 const productRoutes = require("./routes/productRoutes");
 const connectDB = require("./config/db");
+const cookiParser = require("cookie-parser")
 // const User = require("./models/User");
 const userRoutes = require('./routes/userRoutes');
-const authRoutes = require('./routes/authRoutes');
+// const authRoutes = require('./routes/authRoutes');
 
 
 connectDB();
@@ -14,11 +15,12 @@ connectDB();
 
 
 app.use(express.json());
+app.use(cookiParser());
 app.use(cors());
 
-app.get("/",(req,res)=>{
-    res.status(201).json("Server created")
-})
+// app.get("/",(req,res)=>{
+//     res.status(201).json("Server created")
+// })
 
 // const userSchema = new mongoose.Schema({
 //     name: String,
@@ -35,8 +37,8 @@ app.get("/",(req,res)=>{
 
 // }) 
 //routes
-app.use("/api/users",userRoutes);
-app.use("/api/auth",authRoutes);
+app.use(userRoutes);
+// app.use("/api/auth",authRoutes);
 
 // app.post('/signup',(req,res) =>{
 //     UserCollection.create(req.body)
