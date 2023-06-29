@@ -98,7 +98,7 @@ const Login = () => {
                         </div>
 
                         <button className='btn' onClick={loginuser}>Login</button>
-                        <p>Don't have an Account? <Link to="/signup">Sign Up</Link> </p>
+                        <p>Don't have an Account? <Link to="/register">Sign Up</Link> </p>
                     </form>
                     <ToastContainer />
                 </div>
