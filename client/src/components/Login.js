@@ -82,7 +82,7 @@ const Login = () => {
                         <p>Hi, we are you glad you are back. Please login.</p>
                     </div>
 
-                    <form>
+                    <form className='singup_form'>
                         <div className="form_input">
                             <label htmlFor="email">Email</label>
                             <input type="email" value={inpval.email} onChange={setVal} name="email" id="email" placeholder='Enter Your Email Address' />
