@@ -1,9 +1,33 @@
 import React from 'react';
+import { Link ,useNavigate} from "react-router-dom"
+
 import HeadOffice from './images/ho.jpg';
 import demo1 from './images/demo1.jpeg';
 import demo2 from './images/demo2.jpeg';
 import './style/Home.css';
 export default function Home() {
+    const history = useNavigate();
+    const DashboardValid = async () => {
+        let token = localStorage.getItem("usersdatatoken");
+        console.log(token)
+
+        const res = await fetch("/validuser", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": token
+            }
+        });
+
+        const data = await res.json();
+
+        if (data.status == 401 || !data) {
+            history("*");
+        } else {
+            console.log("user verify");
+            history("/");
+        }
+    }
   const scrollleft = ()=>{
     var left = document.querySelector(".scroll");
     console.log(left);

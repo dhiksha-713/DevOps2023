@@ -21,9 +21,9 @@ app.use(express.json());
 app.use(cookiParser());
 app.use(cors());
 app.use(userRoutes);
-// app.get("/",(req,res)=>{
-//     res.status(201).json("Server created")
-// })
+app.get("/",(req,res)=>{
+    res.status(201).json("Server created")
+})
 
 // const userSchema = new mongoose.Schema({
 //     name: String,
