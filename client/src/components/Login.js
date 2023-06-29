@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link ,useNavigate} from "react-router-dom"
 import { ToastContainer, toast } from 'react-toastify';
-import "./mix.css"
+import "./style/mix.css"
 
 const Login = () => {
 
@@ -82,7 +82,7 @@ const Login = () => {
                         <p>Hi, we are you glad you are back. Please login.</p>
                     </div>
 
-                    <form>
+                    <form className='singup_form'>
                         <div className="form_input">
                             <label htmlFor="email">Email</label>
                             <input type="email" value={inpval.email} onChange={setVal} name="email" id="email" placeholder='Enter Your Email Address' />
@@ -98,7 +98,7 @@ const Login = () => {
                         </div>
 
                         <button className='btn' onClick={loginuser}>Login</button>
-                        <p>Don't have an Account? <Link to="/register">Sign Up</Link> </p>
+                        <p>Don't have an Account? <Link to="/signup">Sign Up</Link> </p>
                     </form>
                     <ToastContainer />
                 </div>

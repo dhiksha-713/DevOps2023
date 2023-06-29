@@ -106,11 +106,9 @@ export default function Signup(props) {
                 <div className="form_data">
                     <div className="form_heading">
                         <h1>Sign Up</h1>
-                        <p style={{ textAlign: "center" }}>We are glad that you will be using Project Cloud to manage <br />
-                            your tasks! We hope that you will get like it.</p>
                     </div>
 
-                    <form>
+                    <form className='singup_form'>
                         <div className="form_input">
                             <label htmlFor="fname">Name</label>
                             <input type="text" onChange={setVal} value={inpval.fname} name="fname" id="fname" placeholder='Enter Your Name' />
@@ -140,7 +138,7 @@ export default function Signup(props) {
                         </div>
 
                         <button className='btn' onClick={addUserdata}>Sign Up</button>
-                        <p>Already have an account? <Link to="/">Log In</Link></p>
+                        <p>Already have an account? <Link to="/login">Log In</Link></p>
                     </form>
                     <ToastContainer />
                 </div>
