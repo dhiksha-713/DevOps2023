@@ -24,7 +24,7 @@ export default function Signup(props) {
     const handleSubmit = async(e) =>{
         e.preventDefault();
         try {
-            const url = "http://localhost:5000/api/users"
+            const url = "http://localhost:5000/api/users/signup"
             const {data:res} = await axios.post(url,data);
             navigate("/login")
             console.log(res.message);
@@ -47,7 +47,7 @@ export default function Signup(props) {
     
   return (
     <div className='sign-container'>
-      <form className="form form--hidden" id="createAccount" onSubmit={handleSubmit}>
+      <form className="form form--hidden" id="createAccount" >
             <h1 className="form__title">Create Account</h1>
             <div className="form__message form__message--error"></div>
             <div className="form__input-group">
@@ -67,7 +67,7 @@ export default function Signup(props) {
                 <div className="form__input-error-message"></div>
             </div> */}
             {error&& <div>{error}</div>}
-            <button className="form__button" type="submit" >Sign Up</button>
+            <button className="form__button" type="submit" onSubmit={handleSubmit}>Sign Up</button>
             <p className="form__text">
                 {/* <button className="form__link"  id="linkLogin" onClick={()=>props.onFormSwitch('login')}>Already have an account? Sign in</button> */}
                 <Link to="/login" className="form__link"  id="linkLogin">
