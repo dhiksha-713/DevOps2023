@@ -29,6 +29,7 @@ function Navbar(props) {
           <div className="cart" id="top-nav">
             <Link to="/">
               <i className="fa fa-shopping-cart fa-2x"></i>
+              <span className="cartlogo__badge">0</span>
             </Link>
           </div>
           <div className="login" id="top-nav"><h4 className="log"><Link to='/login' >
@@ -70,7 +71,7 @@ function Navbar(props) {
             <Link to="/developers" className="developers">
               <li>DEVELOPERS</li>
             </Link>
-            <Link to="#" className="cart-bottom">
+            <Link to="/Cart" className="cart-bottom">
               <li>CART</li>
             </Link>
             <Link to="/login" className="login-bottom">

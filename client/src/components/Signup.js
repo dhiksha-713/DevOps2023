@@ -1,40 +1,99 @@
-import React,{useState} from 'react';
-import axios from 'axios';
-import './style/Signup.css';
-import {Link,useNavigate} from 'react-router-dom'
-import { set } from 'mongoose';
-
+import React, { useState } from 'react'
+import { Link } from "react-router-dom"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import "./style/mix.css"
 export default function Signup(props) {
     // const [name, setName] = useState("");
     // const [email, setEmail] = useState('')
     // const [password, setPassword] = useState('')
 
-    const [data, setData] = useState({
-        username: "",
-        email:"",
-        password:""
-    })
-    const [error,setError] = useState("");
-    const navigate = useNavigate();
+    const [passShow, setPassShow] = useState(false);
+    const [cpassShow, setCPassShow] = useState(false);
 
-    const handleChange = ({currentTarget:input}) =>{
-        setData({...data,[input.name]:input.value})
-    }
+    const [inpval, setInpval] = useState({
+        fname: "",
+        email: "",
+        password: "",
+        cpassword: ""
+    });
 
-    const handleSubmit = async(e) =>{
+
+    const setVal = (e) => {
+        // console.log(e.target.value);
+        const { name, value } = e.target;
+
+        setInpval(() => {
+            return {
+                ...inpval,
+                [name]: value
+            }
+        })
+    };
+
+    const addUserdata = async (e) => {
         e.preventDefault();
-        try {
-            const url = "http://localhost:5000/api/users"
-            const {data:res} = await axios.post(url,data);
-            navigate("/login")
-            console.log(res.message);
-        } catch (error) {
-            if(error.response && error.response.status >=400 && error.response.status<=500){
-                setError(error.response.data.message)
+
+        const { fname, email, password, cpassword } = inpval;
+
+        if (fname === "") {
+            toast.warning("fname is required!", {
+                position: "top-center"
+            });
+        } else if (email === "") {
+            toast.error("email is required!", {
+                position: "top-center"
+            });
+        } else if (!email.includes("@")) {
+            toast.warning("includes @ in your email!", {
+                position: "top-center"
+            });
+        } else if (password === "") {
+            toast.error("password is required!", {
+                position: "top-center"
+            });
+        } else if (password.length < 6) {
+            toast.error("password must be 6 char!", {
+                position: "top-center"
+            });
+        } else if (cpassword === "") {
+            toast.error("cpassword is required!", {
+                position: "top-center"
+            });
+        }
+        else if (cpassword.length < 6) {
+            toast.error("confirm password must be 6 char!", {
+                position: "top-center"
+            });
+        } else if (password !== cpassword) {
+            toast.error("pass and Cpass are not matching!", {
+                position: "top-center"
+            });
+        } else {
+            // console.log("user registration succesfully done");
+
+
+            const data = await fetch("/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    fname, email, password, cpassword
+                })
+            });
+
+            const res = await data.json();
+            // console.log(res.status);
+
+            if (res.status === 201) {
+                toast.success("Registration Successfully done 😃!", {
+                    position: "top-center"
+                });
+                setInpval({ ...inpval, fname: "", email: "", password: "", cpassword: "" });
             }
         }
     }
-
     // async function submit(e){
     //     e.preventDefault();
 
@@ -46,35 +105,48 @@ export default function Signup(props) {
     // }
     
   return (
-    <div className='sign-container'>
-      <form className="form form--hidden" id="createAccount" onSubmit={handleSubmit}>
-            <h1 className="form__title">Create Account</h1>
-            <div className="form__message form__message--error"></div>
-            <div className="form__input-group">
-                <input type="text" id="signupUsername username" className="form__input" autoFocus placeholder="Username"  name="username" onChange={handleChange}/>
-                <div className="form__input-error-message"></div>
-            </div>
-            <div className="form__input-group">
-                <input type="email" className="form__input" autoFocus placeholder="Email Address" pattern="[a-z]+.cs+21+@+bmsce.ac.in" id="email" name="email" onChange={handleChange}/>
-                <div className="form__input-error-message"></div>
-            </div>
-            <div className="form__input-group">
-                <input type="password" className="form__input" autoFocus placeholder="Password" id="password" name="password" onChange={handleChange}/>
-                <div className="form__input-error-message"></div>
-            </div>
-            {/* <div className="form__input-group">
-                <input type="password" className="form__input" autofocus placeholder="Confirm password" id="cpassword" name="cpassword"/>
-                <div className="form__input-error-message"></div>
-            </div> */}
-            {error&& <div>{error}</div>}
-            <button className="form__button" type="submit" >Sign Up</button>
-            <p className="form__text">
-                {/* <button className="form__link"  id="linkLogin" onClick={()=>props.onFormSwitch('login')}>Already have an account? Sign in</button> */}
-                <Link to="/login" className="form__link"  id="linkLogin">
-                Already have an account? Sign in
-            </Link>
-            </p>
-        </form>
-    </div>
+    <>
+            <section>
+                <div className="form_data">
+                    <div className="form_heading">
+                        <h1>Sign Up</h1>
+                    </div>
+
+                    <form>
+                        <div className="form_input">
+                            <label htmlFor="fname">Name</label>
+                            <input type="text" onChange={setVal} value={inpval.fname} name="fname" id="fname" placeholder='Enter Your Name' />
+                        </div>
+                        <div className="form_input">
+                            <label htmlFor="email">Email</label>
+                            <input type="email" onChange={setVal} value={inpval.email} name="email" id="email" placeholder='Enter Your Email Address' />
+                        </div>
+                        <div className="form_input">
+                            <label htmlFor="password">Password</label>
+                            <div className="two">
+                                <input type={!passShow ? "password" : "text"} value={inpval.password} onChange={setVal} name="password" id="password" placeholder='Enter Your password' />
+                                <div className="showpass" onClick={() => setPassShow(!passShow)}>
+                                    {!passShow ? "Show" : "Hide"}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="form_input">
+                            <label htmlFor="password">Confirm Password</label>
+                            <div className="two">
+                                <input type={!cpassShow ? "password" : "text"} value={inpval.cpassword} onChange={setVal} name="cpassword" id="cpassword" placeholder='Confirm password' />
+                                <div className="showpass" onClick={() => setCPassShow(!cpassShow)}>
+                                    {!cpassShow ? "Show" : "Hide"}
+                                </div>
+                            </div>
+                        </div>
+
+                        <button className='btn' onClick={addUserdata}>Sign Up</button>
+                        <p>Already have an account? <Link to="/">Log In</Link></p>
+                    </form>
+                    <ToastContainer />
+                </div>
+            </section>
+        </>
   )
 }

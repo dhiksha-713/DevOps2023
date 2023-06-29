@@ -30,9 +30,8 @@ app.use(cors());
 
 
 // }) 
-
 //routes
-app.post("/api/users",userRoutes);
+app.use("/api/users",userRoutes);
 app.use("/api/auth",authRoutes);
 
 // app.post('/signup',(req,res) =>{
