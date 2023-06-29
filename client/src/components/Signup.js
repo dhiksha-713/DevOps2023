@@ -105,48 +105,35 @@ export default function Signup(props) {
     // }
     
   return (
-    <>
-            <section>
-                <div className="form_data">
-                    <div className="form_heading">
-                        <h1>Sign Up</h1>
-                    </div>
-
-                    <form>
-                        <div className="form_input">
-                            <label htmlFor="fname">Name</label>
-                            <input type="text" onChange={setVal} value={inpval.fname} name="fname" id="fname" placeholder='Enter Your Name' />
-                        </div>
-                        <div className="form_input">
-                            <label htmlFor="email">Email</label>
-                            <input type="email" onChange={setVal} value={inpval.email} name="email" id="email" placeholder='Enter Your Email Address' />
-                        </div>
-                        <div className="form_input">
-                            <label htmlFor="password">Password</label>
-                            <div className="two">
-                                <input type={!passShow ? "password" : "text"} value={inpval.password} onChange={setVal} name="password" id="password" placeholder='Enter Your password' />
-                                <div className="showpass" onClick={() => setPassShow(!passShow)}>
-                                    {!passShow ? "Show" : "Hide"}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="form_input">
-                            <label htmlFor="password">Confirm Password</label>
-                            <div className="two">
-                                <input type={!cpassShow ? "password" : "text"} value={inpval.cpassword} onChange={setVal} name="cpassword" id="cpassword" placeholder='Confirm password' />
-                                <div className="showpass" onClick={() => setCPassShow(!cpassShow)}>
-                                    {!cpassShow ? "Show" : "Hide"}
-                                </div>
-                            </div>
-                        </div>
-
-                        <button className='btn' onClick={addUserdata}>Sign Up</button>
-                        <p>Already have an account? <Link to="/">Log In</Link></p>
-                    </form>
-                    <ToastContainer />
-                </div>
-            </section>
-        </>
+    <div className='sign-container'>
+      <form className="form form--hidden" id="createAccount" onSubmit={handleSubmit}>
+            <h1 className="form__title">Create Account</h1>
+            <div className="form__message form__message--error"></div>
+            <div className="form__input-group">
+                <input type="text" id="signupUsername username" className="form__input" autoFocus placeholder="Username"  name="username" onChange={handleChange}/>
+                <div className="form__input-error-message"></div>
+            </div>
+            <div className="form__input-group">
+                <input type="email" className="form__input" autoFocus placeholder="Email Address" pattern="[a-z]+.cs+21+@+bmsce.ac.in" id="email" name="email" onChange={handleChange}/>
+                <div className="form__input-error-message"></div>
+            </div>
+            <div className="form__input-group">
+                <input type="password" className="form__input" autoFocus placeholder="Password" id="password" name="password" onChange={handleChange}/>
+                <div className="form__input-error-message"></div>
+            </div>
+            {/* <div className="form__input-group">
+                <input type="password" className="form__input" autofocus placeholder="Confirm password" id="cpassword" name="cpassword"/>
+                <div className="form__input-error-message"></div>
+            </div> */}
+            {error&& <div>{error}</div>}
+            <button className="form__button" type="submit" >Sign Up</button>
+            <p className="form__text">
+                {/* <button className="form__link"  id="linkLogin" onClick={()=>props.onFormSwitch('login')}>Already have an account? Sign in</button> */}
+                <Link to="/login" className="form__link"  id="linkLogin">
+                Already have an account? Sign in
+            </Link>
+            </p>
+        </form>
+    </div>
   )
 }

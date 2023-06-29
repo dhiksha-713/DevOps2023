@@ -3,7 +3,7 @@ const { User, validate } = require('../models/User');
 const bcrypt = require('bcrypt');
 
 router.post("/signup", async (req, res) => {
-  console.log("userRoute")
+  console.log("userRoute");
   try {
     const { error } = validate(req.body);
     if (error)

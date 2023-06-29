@@ -16,6 +16,10 @@ connectDB();
 app.use(express.json());
 app.use(cors());
 
+app.get("/",(req,res)=>{
+    res.status(201).json("Server created")
+})
+
 // const userSchema = new mongoose.Schema({
 //     name: String,
 //     email: String,
@@ -31,8 +35,13 @@ app.use(cors());
 
 // }) 
 //routes
+<<<<<<< HEAD
 app.use("/api/users",userRoutes);
 app.use("/api/auth",authRoutes);
+=======
+// app.use("/api/users",userRoutes);
+// app.use("/api/auth",authRoutes);
+>>>>>>> b9c5270e0e77739799896188a657a595700c091e
 
 // app.post('/signup',(req,res) =>{
 //     UserCollection.create(req.body)
@@ -40,7 +49,7 @@ app.use("/api/auth",authRoutes);
 //     .catch(error => res.json(error))
 // })
 
-app.use("/api/products", productRoutes);
+// app.use("/api/products", productRoutes);
 
 //listen to port variable
 const PORT = process.env.PORT || 5000;//this or 5000/8080
