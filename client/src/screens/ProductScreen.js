@@ -1,6 +1,6 @@
 import React from 'react'
 import "./ProductScreen.css";
-import impchainsaw from "./images/STIHL MS250 2.png";
+import impchainsaw from "../components/images/STIHL MS250 2.png";
 export default function ProductScreen() {
   return (
     <div className='productscreen'>
