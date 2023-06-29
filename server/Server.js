@@ -34,10 +34,9 @@ app.get("/",(req,res)=>{
 
 
 // }) 
-
 //routes
-// app.use("/api/users",userRoutes);
-// app.use("/api/auth",authRoutes);
+app.use("/api/users",userRoutes);
+app.use("/api/auth",authRoutes);
 
 // app.post('/signup',(req,res) =>{
 //     UserCollection.create(req.body)

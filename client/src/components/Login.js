@@ -1,78 +1,110 @@
-import React, { useState } from 'react';
-import './style/Login.css';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Link ,useNavigate} from "react-router-dom"
+import { ToastContainer, toast } from 'react-toastify';
+import "./style/mix.css"
 
-export default function Login() {
-  const [data, setData] = useState({
-    email: "",
-    password: ""
-  });
-  const [error, setError] = useState("");
+const Login = () => {
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setData(prevData => ({ ...prevData, [name]: value }));
-  };
+    const [passShow, setPassShow] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const url = "http://localhost:5000/api/auth";
-      const response = await axios.post(url, data);
-      localStorage.setItem("token", response.data.data);
-      window.location = "/";
-      console.log(response.data.message);
-    } catch (error) {
-      if (error.response && error.response.status >= 400 && error.response.status <= 500) {
-        setError(error.response.data.message);
-      }
+    const [inpval, setInpval] = useState({
+        email: "",
+        password: "",
+    });
+
+    const history = useNavigate();
+
+    const setVal = (e) => {
+        // console.log(e.target.value);
+        const { name, value } = e.target;
+
+        setInpval(() => {
+            return {
+                ...inpval,
+                [name]: value
+            }
+        })
+    };
+
+
+    const loginuser = async(e) => {
+        e.preventDefault();
+
+        const { email, password } = inpval;
+
+        if (email === "") {
+            toast.error("email is required!", {
+                position: "top-center"
+            });
+        } else if (!email.includes("@")) {
+            toast.warning("includes @ in your email!", {
+                position: "top-center"
+            });
+        } else if (password === "") {
+            toast.error("password is required!", {
+                position: "top-center"
+            });
+        } else if (password.length < 6) {
+            toast.error("password must be 6 char!", {
+                position: "top-center"
+            });
+        } else {
+            // console.log("user login succesfully done");
+
+
+            const data = await fetch("/login",{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                     email, password
+                })
+            });
+
+            const res = await data.json();
+            //  console.log(res);
+
+            if(res.status === 201){
+                localStorage.setItem("usersdatatoken",res.result.token);
+                history("/dash")
+                setInpval({...inpval,email:"",password:""});
+            }
+        }
     }
-  };
 
-  return (
-    <div className="body-login">
-      <div className="login-container">
-        <form className="form" id="login" onSubmit={handleSubmit}>
-          <h1 className="form__title">Login</h1>
-          <div className="form__message form__message--error"></div>
-          <div className="form__input-group">
-            <input
-              type="email"
-              className="form__input"
-              autoFocus
-              placeholder="Email"
-              pattern="[a-z]+.cs+21+@+bmsce.ac.in"
-              name="email"
-              value={data.email}
-              onChange={handleChange}
-              required
-            />
-            <div className="form__input-error-message"></div>
-          </div>
-          <div className="form__input-group">
-            <input
-              type="password"
-              className="form__input"
-              autoFocus
-              placeholder="Password"
-              name="password"
-              value={data.password}
-              onChange={handleChange}
-              required
-            />
-            <div className="form__input-error-message"></div>
-          </div>
-          {error && <div>{error}</div>}
+    return (
+        <>
+            <section>
+                <div className="form_data">
+                    <div className="form_heading">
+                        <h1>Welcome Back, Log In</h1>
+                        <p>Hi, we are you glad you are back. Please login.</p>
+                    </div>
 
-          <button className="form__button" type="submit">Continue</button>
-          <p className="form__text">
-            <Link to="/signup" className="form__link" id="linkCreateAccount">
-              Don't have an account? Create an account
-            </Link>
-          </p>
-        </form>
-      </div>
-    </div>
-  );
+                    <form className='singup_form'>
+                        <div className="form_input">
+                            <label htmlFor="email">Email</label>
+                            <input type="email" value={inpval.email} onChange={setVal} name="email" id="email" placeholder='Enter Your Email Address' />
+                        </div>
+                        <div className="form_input">
+                            <label htmlFor="password">Password</label>
+                            <div className="two">
+                                <input type={!passShow ? "password" : "text"} onChange={setVal} value={inpval.password} name="password" id="password" placeholder='Enter Your password' />
+                                <div className="showpass" onClick={() => setPassShow(!passShow)}>
+                                    {!passShow ? "Show" : "Hide"}
+                                </div>
+                            </div>
+                        </div>
+
+                        <button className='btn' onClick={loginuser}>Login</button>
+                        <p>Don't have an Account? <Link to="/register">Sign Up</Link> </p>
+                    </form>
+                    <ToastContainer />
+                </div>
+            </section>
+        </>
+    )
 }
+
+export default Login

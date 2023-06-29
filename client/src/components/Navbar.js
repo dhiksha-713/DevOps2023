@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import Logo from "./images/logo.png";
 import "bootstrap/dist/css/bootstrap.css";
@@ -15,8 +13,12 @@ function Navbar(props) {
       <nav className="nav">
         <div className="nav-top">
           <div className="logo" id="top-nav">
-          <Link to="/" className="home">
-          <img src='%PUBLIC_URL%./images/logo.png' height="60px" alt="logo" />
+            <Link to="/" className="home">
+              <img
+                src="%PUBLIC_URL%./images/logo.png"
+                height="60px"
+                alt="logo"
+              />
             </Link>
           </div>
           <div className="sayatitle" id="top-nav">
@@ -29,12 +31,17 @@ function Navbar(props) {
           <div className="cart" id="top-nav">
             <Link to="/">
               <i className="fa fa-shopping-cart fa-2x"></i>
+              <span className="cartlogo__badge">0</span>
             </Link>
           </div>
-          <div className="login" id="top-nav"><h4 className="log"><Link to='/login' >
-          LOGIN / SIGN UP
-            </Link>
-            </h4></div>
+
+          
+
+          <div className="login" id="top-nav">
+            <h4 className="log">
+              <Link to="/login">LOGIN / SIGN UP</Link>
+            </h4>
+          </div>
         </div>
         <div className="nav-bottom">
           <button
@@ -70,7 +77,7 @@ function Navbar(props) {
             <Link to="/developers" className="developers">
               <li>DEVELOPERS</li>
             </Link>
-            <Link to="#" className="cart-bottom">
+            <Link to="/Cart" className="cart-bottom">
               <li>CART</li>
             </Link>
             <Link to="/login" className="login-bottom">
@@ -84,7 +91,6 @@ function Navbar(props) {
 }
 
 export default Navbar;
-
 
 //to install font awesome
 

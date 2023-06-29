@@ -13,9 +13,11 @@ import Gallery from "./components/Gallery";
 import Developers from "./components/Developers";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
-import Signup from "./components/Signup";
+import Register from "./components/Register";
 import Footer from "./components/Footer";
-
+// import HomeScreen from "./screens/HomeScreen";
+// import ProductScreen from "./screens/ProductScreen";
+// import CartScreen from "./screens/CartScreen";
 function App() {
   const [loginForm, setLoginForm] = useState("login");
 
@@ -28,14 +30,14 @@ function App() {
 
   // Check if the current location is the login page
   const isLoginPage = currentLocation.pathname === "/login";
-  const isSignUpPage = currentLocation.pathname === "/signup";
+  const isRegisterPage = currentLocation.pathname === "/register";
 
   return (
     <>
-      {(!isLoginPage && !isSignUpPage)&& <Navbar />}
+      {(!isLoginPage && !isRegisterPage)&& <Navbar />}
       <Routes>
         <Route path="/login" element={<Login></Login>} exact></Route>
-        <Route path="/signup" element={<Signup></Signup>} exact></Route>
+        <Route path="/register" element={<Register></Register>} exact></Route>
         <Route path="/" element={<Home />} exact></Route>{" "}
         {/* Added route for the root path */}
         <Route path="/about" element={<About />} exact></Route>
@@ -43,8 +45,11 @@ function App() {
         <Route path="/branch" element={<Branches />} exact></Route>
         <Route path="/gallery" element={<Gallery />} exact></Route>
         <Route path="/developers" element={<Developers />} exact></Route>
+        {/* <Route path="/HomeScreen" element={<HomeScreen />} exact></Route>
+        <Route path="/product/:id" element={<ProductScreen  />} exact></Route>
+        <Route path="/cart" element={<CartScreen />} exact></Route> */}
       </Routes>
-      {(!isLoginPage && !isSignUpPage) && <Footer />}
+      {(!isLoginPage && !isRegisterPage) && <Footer />}
     </>
   );
 }

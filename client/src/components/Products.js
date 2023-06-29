@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import product_category from "./data/productsData";
 import "./style/Products.css";
+import { Link } from 'react-router-dom';
 // import {search} from './scripts/Product';
 
 export default function Products() {
@@ -18,7 +19,7 @@ export default function Products() {
         <div className="p-details">
           <h2>{item.product_name}</h2>
           <h4>{item.description}</h4>
-          <button type="button">See more</button>
+          <Link to="/HomeScreen"><button type="button">See more</button></Link>
         </div>
       </div>
     ));
