@@ -1,13 +1,30 @@
 import React, { useState } from "react";
-import Logo from "./images/logo.png";
+//import person from "./images/person.png";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style/Navbar.css";
+//import FontAwesomeIcon from 
 // import PropTypes from 'prop-types'
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 function Navbar(props) {
   const [isMobile, setIsMobile] = useState(false);
-
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
   return (
     <>
       <nav className="nav">
@@ -34,14 +51,28 @@ function Navbar(props) {
               <span className="cartlogo__badge">0</span>
             </Link>
           </div>
-
           
-
-          <div className="login" id="top-nav">
+          
+          <div className="dropdown">
+              {/* <button  className="dropbtn"> */}
+                {/* <img src={person}/> */}
+                {/* <i onClick={myFunction} className="fa-solid fa-circle-user fa-2xl dropbtn"  ></i> */}
+                <div className="user_welcome">
+                <i onClick={myFunction} className="fa-solid fa-circle-user fa-2xl dropbtn"  ></i>
+                {/* </button> */}
+                <label className="label_welcome">Welcome Back!</label>
+                </div>
+              <div id="myDropdown" class="dropdown-content">
+                <Link to="/login">Login</Link>
+                <Link to="/register">SignUp</Link>
+                <Link to="/">Logout</Link>
+              </div>
+          </div>
+          {/* <div className="login" id="top-nav">
             <h4 className="log">
               <Link to="/login">LOGIN / SIGN UP</Link>
             </h4>
-          </div>
+          </div> */}
         </div>
         <div className="nav-bottom">
           <button

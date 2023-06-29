@@ -1,22 +1,14 @@
-const router = require('express').Router();
-const { User, validate } = require('../models/User');
-const bcrypt = require('bcrypt');
+const express = require("express");
+const router = new express.Router();
+const userdb = require("../models/User");
+var bcrypt = require("bcryptjs");
+const authenticate = require("../controller/authenticate");
+
+
+// for user registration
 
 router.post("/register", async (req, res) => {
-  console.log("userRoute")
-  try {
-    const { error } = validate(req.body);
-    if (error)
-      return res.status(400).send({ message: error.details[0].message });
 
-<<<<<<< HEAD
-    const user = await User.findOne({ email: req.body.email });
-    if (user)
-      return res.status(409).send({ message: "User already exists" });
-
-    const salt = await bcrypt.genSalt(Number(process.env.SALT));
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
-=======
   console.log(req.body)
     const { fname, email, password, cpassword } = req.body;
 
@@ -49,18 +41,9 @@ router.post("/register", async (req, res) => {
         res.status(422).json(error);
         console.log("catch block error");
     }
->>>>>>> d2f269767c2660e3c7033951d2052afbb8c29229
 
-    await new User({ ...req.body, password: hashedPassword }).save();
-    res.status(201).send({ message: "User created successfully" });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send({ message: "Internal server error" });
-  }
 });
 
-<<<<<<< HEAD
-=======
 
 
 
@@ -144,6 +127,16 @@ router.get("/validuser",authenticate,async(req,res)=>{
 // })
 
 
->>>>>>> d2f269767c2660e3c7033951d2052afbb8c29229
 module.exports = router;
+
+
+
+// 2 way connection
+// 12345 ---> e#@$hagsjd
+// e#@$hagsjd -->  12345
+
+// hashing compare
+// 1 way connection
+// 1234 ->> e#@$hagsjd
+// 1234->> (e#@$hagsjd,e#@$hagsjd)=> true
 
