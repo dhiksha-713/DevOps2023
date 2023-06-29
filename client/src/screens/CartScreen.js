@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import "./CartScreen.css";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -73,26 +72,3 @@ const CartScreen = () => {
 };
 
 export default CartScreen;
-=======
-import React from 'react'
-
-export default function CartScreen() {
-  return (
-    <>
-    <div className="cartscreen">
-        <div className="cartscreen__left">
-        <h2>Shopping Cart</h2>
-        <CartItem/>
-        </div>
-        <div className="cartscreen__right">
-            <div className="cartscreen__info">
-            </div>
-            <div>
-                <button>Proceed To Checkout</button>
-            </div>
-        </div>
-    </div>
-    </>
-  )
-}
->>>>>>> b447fd7bac1499f1d329eff5d4f2d50e9c95943a
