@@ -15,9 +15,9 @@ import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Footer from "./components/Footer";
-// import HomeScreen from "./screens/HomeScreen";
-// import ProductScreen from "./screens/ProductScreen";
-// import CartScreen from "./screens/CartScreen";
+import HomeScreen from "./screens/HomeScreen";
+import ProductScreen from "./screens/ProductScreen";
+import CartScreen from "./screens/CartScreen";
 function App() {
   const [loginForm, setLoginForm] = useState("login");
 
@@ -45,9 +45,9 @@ function App() {
         <Route path="/branch" element={<Branches />} exact></Route>
         <Route path="/gallery" element={<Gallery />} exact></Route>
         <Route path="/developers" element={<Developers />} exact></Route>
-        {/* <Route path="/HomeScreen" element={<HomeScreen />} exact></Route>
+         <Route path="/HomeScreen" element={<HomeScreen />} exact></Route>
         <Route path="/product/:id" element={<ProductScreen  />} exact></Route>
-        <Route path="/cart" element={<CartScreen />} exact></Route> */}
+        <Route path="/cart" element={<CartScreen />} exact></Route> 
       </Routes>
       {(!isLoginPage && !isRegisterPage) && <Footer />}
     </>

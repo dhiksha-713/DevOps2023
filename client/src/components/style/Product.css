@@ -1,4 +1,18 @@
-.product {
+.product__chainsaw img
+{
+    height:168px;
+    float:left;
+    width:50%;
+    margin-right:15px;
+}
+/* .product__chainsaw{
+    margin: 20px;
+    height: 200px;
+    width: 380px;
+    border: 2px solid rgb(255, 166, 0);
+    align-content: center;
+} */
+.product__chainsaw {
     width: 300px;
     padding: 1rem;
     background: #fff;
@@ -10,98 +24,101 @@
     justify-content: space-between;
     flex-direction: column;
   }
-  
-  .product > img {
+
+  .product__chainsaw > img {
     width: 100%;
     height: 170px;
     object-fit: contain;
     border-radius: 8px;
   }
-  
-  .product__info > p {
+
+  .product__chainsaw__info > p {
     margin-bottom: 8px;
   }
-  
-  .info__price {
+
+  .chainsaw_info__price
+  {
     font-weight: bold;
+    margin: 10px;
   }
-  
-  .info__name {
+
+  /*  */
+  .chainsaw_info__name {
     font-size: 1rem;
     overflow: hidden;
   }
   
-  .info__description {
+  .chainsaw_info__description {
     font-size: 0.8rem;
   }
   
-  .info__button {
+  .chainsaw_info__button {
     display: block;
-    text-decoration: none;
-    text-align: center;
-    color: #171717;
-    width: 100%;
-    padding: 8px 16px;
-    background-color: #f4f4f4;
-    border: 1px solid #171717;
-    font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  color: #171717;
+  width: 100%;
+  padding: 8px 16px;
+  background-color: rgb(255, 166, 0);
+  /* border: 1px solid #171717; */
+  font-size: 1rem;
   }
   
-  .info__button:hover {
-    background: #171717;
+  .chainsaw_info__button:hover {
+    background: green;
     color: #f4f4f4;
   }
   
-  @media (max-width: 1232px) {
-    .product {
+  /* @media (max-width: 1232px) {
+    .product__chainsaw {
       width: 360px;
     }
   }
   
   @media (max-width: 1115px) {
-    .product {
+    .product__chainsaw {
       width: 330px;
     }
   }
   
   @media (max-width: 1028px) {
-    .product {
+    .product__chainsaw {
       width: 300px;
     }
   }
   
   @media (max-width: 950px) {
-    .product {
+    .product__chainsaw {
       width: 400px;
     }
   }
   
   @media (max-width: 830px) {
-    .product {
+    .product__chainsaw {
       width: 330px;
     }
   }
   
   @media (max-width: 700px) {
-    .product {
+    .product__chainsaw {
       width: 290px;
     }
   }
   
   @media (max-width: 630px) {
-    .product {
+    .product__chainsaw {
       width: 450px;
     }
   }
   
   @media (max-width: 500px) {
-    .product {
+    .product__chainsaw {
       width: 350px;
     }
   }
   
   @media (max-width: 400px) {
-    .product {
+    .product__chainsaw {
       width: 300px;
     }
-  }
+  } */
