@@ -17,7 +17,7 @@ export default function ProductScreen() {
         <div className="productscreen__right">
             <div className='right__info'>
                 <p>
-                    Price: <span>₹1499</span>
+                    Price: <span>₹14999</span>
                 </p>
                 <p>
                     Status: <span>In Stock</span>
