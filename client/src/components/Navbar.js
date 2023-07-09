@@ -32,7 +32,7 @@ function Navbar(props) {
           <div className="logo" id="top-nav">
             <Link to="/" className="home">
               <img
-                src="%PUBLIC_URL%./images/logo.png"
+                src=""
                 height="60px"
                 alt="logo"
               />
@@ -62,7 +62,7 @@ function Navbar(props) {
                 {/* </button> */}
                 <label className="label_welcome">Welcome Back!</label>
                 </div>
-              <div id="myDropdown" class="dropdown-content">
+              <div id="myDropdown" className="dropdown-content">
                 <Link to="/login">Login</Link>
                 <Link to="/register">SignUp</Link>
                 <Link to="/">Logout</Link>
