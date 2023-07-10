@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect ,useState } from 'react';
 import { useNavigate} from "react-router-dom"
-
+import { LoginContext } from './ContextProvider/Context';
 import HeadOffice from './images/ho.jpg';
 import demo1 from './images/demo1.jpeg';
 import demo2 from './images/demo2.jpeg';
 import './style/Home.css';
 export default function Home() {
+
+    const { logindata, setLoginData } = useContext(LoginContext);
+    console.log(logindata.ValidUserOne) //comment this
     const history = useNavigate();
     const DashboardValid = async () => {
         let token = localStorage.getItem("usersdatatoken");
@@ -28,6 +31,7 @@ export default function Home() {
           history("*");
         } else {
           console.log("user verify");
+          setLoginData(data)
           history("/");
         }
       };

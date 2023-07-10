@@ -1,5 +1,4 @@
-import React, { createContext, useState } from 'react'
-
+import React, {createContext, useState} from 'react'
 
 export const LoginContext = createContext("");
 
@@ -10,7 +9,7 @@ const Context = ({children}) => {
   return (
     <>
     <LoginContext.Provider value={{logindata,setLoginData}}>
-        {children}
+    {children}
     </LoginContext.Provider>
     </>
   )

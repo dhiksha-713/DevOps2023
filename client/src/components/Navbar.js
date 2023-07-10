@@ -1,12 +1,62 @@
-import React, { useState } from "react";
+import React, {useContext, useState } from "react";
+import { LoginContext } from './ContextProvider/Context';
 //import person from "./images/person.png";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style/Navbar.css";
 //import FontAwesomeIcon from 
 // import PropTypes from 'prop-types'
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+
 function Navbar(props) {
+
+  // const { logindata, setLoginData } = useContext(LoginContext);
+  //   console.log(logindata.ValidUserOne)
+    const { logindata, setLoginData } = useContext(LoginContext);
+
+    const history = useNavigate();
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const logoutuser = async () => {
+      let token = localStorage.getItem("usersdatatoken");
+
+      const res = await fetch("http://localhost:5000/logout", {
+          method: "GET",
+          headers: {
+              "Content-Type": "application/json",
+              "Authorization": token,
+              Accept: "application/json"
+          },
+          credentials: "include"
+      });
+
+      const data = await res.json();
+      console.log(data);
+
+      if (data.status === 201) {
+          console.log("use logout");
+          localStorage.removeItem("usersdatatoken");
+          setLoginData(false)
+          history("/");
+      } else {
+          console.log("error");
+      }
+  }
+
+
+
+
+
+
   const [isMobile, setIsMobile] = useState(false);
   function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
@@ -58,14 +108,21 @@ function Navbar(props) {
                 {/* <img src={person}/> */}
                 {/* <i onClick={myFunction} className="fa-solid fa-circle-user fa-2xl dropbtn"  ></i> */}
                 <div className="user_welcome">
-                <i onClick={myFunction} className="fa-solid fa-circle-user fa-2xl dropbtn"  ></i>
+                  {
+                    logindata.ValidUserOne ? <i onClick={myFunction} className="dropbtn">{logindata.ValidUserOne.fname[0].toUpperCase()}</i> : <i onClick={myFunction} className="fa-solid fa-circle-user fa-2xl dropbtn"  ></i>
+                  }
+                  {/* <i onClick={myFunction} className="fa-solid fa-circle-user fa-2xl dropbtn"  ></i> */}
+                
                 {/* </button> */}
                 <label className="label_welcome">Welcome Back!</label>
                 </div>
               <div id="myDropdown" className="dropdown-content">
                 <Link to="/login">Login</Link>
                 <Link to="/register">SignUp</Link>
-                <Link to="/">Logout</Link>
+                <Link to="/" onClick={() => {
+                                        logoutuser()
+                                        handleClose()
+                                    }}>Logout</Link>
               </div>
           </div>
           {/* <div className="login" id="top-nav">
