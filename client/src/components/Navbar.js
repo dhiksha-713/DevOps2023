@@ -1,91 +1,80 @@
-import React, {useContext, useState } from "react";
-import { LoginContext } from './ContextProvider/Context';
+import React, { useContext, useState } from "react";
+import { LoginContext } from "./ContextProvider/Context";
 //import person from "./images/person.png";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style/Navbar.css";
-//import FontAwesomeIcon from 
+//import FontAwesomeIcon from
 // import PropTypes from 'prop-types'
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useNavigate } from "react-router-dom";
 
-
 function Navbar(props) {
-
   // const { logindata, setLoginData } = useContext(LoginContext);
   //   console.log(logindata.ValidUserOne)
-    const { logindata, setLoginData } = useContext(LoginContext);
+  const { logindata, setLoginData } = useContext(LoginContext);
 
-    const history = useNavigate();
+  const history = useNavigate();
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-    const logoutuser = async () => {
-      let token = localStorage.getItem("usersdatatoken");
+  const logoutuser = async () => {
+    let token = localStorage.getItem("usersdatatoken");
 
-      const res = await fetch("http://localhost:5000/logout", {
-          method: "GET",
-          headers: {
-              "Content-Type": "application/json",
-              "Authorization": token,
-              Accept: "application/json"
-          },
-          credentials: "include"
-      });
+    const res = await fetch("http://localhost:5000/logout", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+        Accept: "application/json",
+      },
+      // credentials: "include",
+    });
 
-      const data = await res.json();
-      console.log(data);
+    const data = await res.json();
+    console.log(data);
 
-      if (data.status === 201) {
-          console.log("use logout");
-          localStorage.removeItem("usersdatatoken");
-          setLoginData(false)
-          history("/");
-      } else {
-          console.log("error");
-      }
-  }
-
-
-
-
-
+    if (data.status === 201) {
+      console.log("use logout");
+      localStorage.removeItem("usersdatatoken");
+      setLoginData(false);
+      history("/");
+    } else {
+      console.log("error");
+    }
+  };
 
   const [isMobile, setIsMobile] = useState(false);
   function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
-  
+
   // Close the dropdown if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
+  window.onclick = function (event) {
+    if (!event.target.matches(".dropbtn")) {
       var dropdowns = document.getElementsByClassName("dropdown-content");
       var i;
       for (i = 0; i < dropdowns.length; i++) {
         var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
+        if (openDropdown.classList.contains("show")) {
+          openDropdown.classList.remove("show");
         }
       }
     }
-  }
+  };
   return (
     <>
       <nav className="nav">
         <div className="nav-top">
           <div className="logo" id="top-nav">
             <Link to="/" className="home">
-              <img
-                src=""
-                height="60px"
-                alt="logo"
-              />
+              <img src="" height="60px" alt="logo" />
             </Link>
           </div>
           <div className="sayatitle" id="top-nav">
@@ -101,29 +90,49 @@ function Navbar(props) {
               <span className="cartlogo__badge">0</span>
             </Link>
           </div>
-          
-          
+
           <div className="dropdown">
-              {/* <button  className="dropbtn"> */}
-                {/* <img src={person}/> */}
-                {/* <i onClick={myFunction} className="fa-solid fa-circle-user fa-2xl dropbtn"  ></i> */}
-                <div className="user_welcome">
-                  {
-                    logindata.ValidUserOne ? <i onClick={myFunction} className="dropbtn">{logindata.ValidUserOne.fname[0].toUpperCase()}</i> : <i onClick={myFunction} className="fa-solid fa-circle-user fa-2xl dropbtn"  ></i>
-                  }
-                  {/* <i onClick={myFunction} className="fa-solid fa-circle-user fa-2xl dropbtn"  ></i> */}
-                
-                {/* </button> */}
-                <label className="label_welcome">Welcome Back!</label>
-                </div>
-              <div id="myDropdown" className="dropdown-content">
-                <Link to="/login">Login</Link>
-                <Link to="/register">SignUp</Link>
-                <Link to="/" onClick={() => {
-                                        logoutuser()
-                                        handleClose()
-                                    }}>Logout</Link>
-              </div>
+            {/* <button  className="dropbtn"> */}
+            {/* <img src={person}/> */}
+            {/* <i onClick={myFunction} className="fa-solid fa-circle-user fa-2xl dropbtn"  ></i> */}
+            <div className="user_welcome">
+              {logindata.ValidUserOne ? (
+                <i onClick={myFunction} className="dropbtn">
+                  {logindata.ValidUserOne.fname[0].toUpperCase()}
+                </i>
+              ) : (
+                <i
+                  onClick={myFunction}
+                  className="fa-solid fa-circle-user fa-2xl dropbtn"
+                ></i>
+              )}
+              {/* <i onClick={myFunction} className="fa-solid fa-circle-user fa-2xl dropbtn"  ></i> */}
+
+              {/* </button> */}
+              <label className="label_welcome">Welcome Back!</label>
+            </div>
+            <div id="myDropdown" className="dropdown-content">
+              {logindata.ValidUserOne ? (
+                <>
+                  <Link to="/login">Login</Link>
+                  <Link to="/register">SignUp</Link>
+                  <Link
+                    to="/"
+                    onClick={() => {
+                      logoutuser();
+                      handleClose();
+                    }}
+                  >
+                    Logout
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/login">Login</Link>
+                  <Link to="/register">SignUp</Link>
+                </>
+              )}
+            </div>
           </div>
           {/* <div className="login" id="top-nav">
             <h4 className="log">

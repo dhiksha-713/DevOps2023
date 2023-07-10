@@ -56,7 +56,7 @@ const scrollright =() =>{
   return (
     <div className='divbody'>
       <div className="news">
-        <p> News will be displayed here.   News will be displayed here. News wil be displayed here.  News will be displayed here.  </p>
+        <p> News will be displayed here.   News will be displayed here. News will be displayed here.  News will be displayed here.  </p>
     </div>
     <div className="content-img-container" id="content-img-container">
         <div>

@@ -109,6 +109,7 @@ router.get("/validuser",authenticate,async(req,res)=>{
 // user logout
 
 router.get("/logout",authenticate,async(req,res)=>{
+    console.log("logout entered")
     try {
         req.rootUser.tokens =  req.rootUser.tokens.filter((curelem)=>{
             return curelem.token !== req.token
@@ -123,7 +124,7 @@ router.get("/logout",authenticate,async(req,res)=>{
     } catch (error) {
         res.status(401).json({status:401,error})
     }
-})
+});
 
 
 module.exports = router;
