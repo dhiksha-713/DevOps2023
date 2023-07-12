@@ -28,7 +28,7 @@ export default function Home() {
       
         if (data.status === 401 || !data) {
           // handle unauthorized or empty response
-          history("*");
+          //history("*");
         } else {
           console.log("user verify");
           setLoginData(data)
