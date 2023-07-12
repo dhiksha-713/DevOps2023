@@ -62,7 +62,7 @@ function Navbar(props) {
                 {/* </button> */}
                 <label className="label_welcome">Welcome Back!</label>
                 </div>
-              <div id="myDropdown" class="dropdown-content">
+              <div id="myDropdown" className="dropdown-content">
                 <Link to="/login">Login</Link>
                 <Link to="/register">SignUp</Link>
                 <Link to="/">Logout</Link>
