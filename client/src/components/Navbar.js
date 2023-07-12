@@ -97,25 +97,35 @@ function Navbar(props) {
             {/* <i onClick={myFunction} className="fa-solid fa-circle-user fa-2xl dropbtn"  ></i> */}
             <div className="user_welcome">
               {logindata.ValidUserOne ? (
-                <i onClick={myFunction} className="dropbtn">
-                  {logindata.ValidUserOne.fname[0].toUpperCase()}
-                </i>
+                <>
+                  <i
+                    onClick={myFunction}
+                    className="fa-solid fa-circle-user fa-2xl dropbtn"
+                  ></i>
+                  <label>
+                    Hi,{" "}
+                    {logindata.ValidUserOne.fname.charAt(0).toUpperCase() +
+                      logindata.ValidUserOne.fname.slice(1)}
+                    !
+                  </label>
+                </>
               ) : (
-                <i
-                  onClick={myFunction}
-                  className="fa-solid fa-circle-user fa-2xl dropbtn"
-                ></i>
+                <>
+                  <i
+                    onClick={myFunction}
+                    className="fa-solid fa-circle-user fa-2xl dropbtn"
+                  ></i>
+                  <label>Welcome back!</label>
+                </>
               )}
               {/* <i onClick={myFunction} className="fa-solid fa-circle-user fa-2xl dropbtn"  ></i> */}
 
               {/* </button> */}
-              <label className="label_welcome">Welcome Back!</label>
             </div>
             <div id="myDropdown" className="dropdown-content">
               {logindata.ValidUserOne ? (
                 <>
-                  <Link to="/login">Login</Link>
-                  <Link to="/register">SignUp</Link>
+                  <Link to="/">Profile</Link>
                   <Link
                     to="/"
                     onClick={() => {
