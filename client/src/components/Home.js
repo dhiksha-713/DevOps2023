@@ -1,33 +1,48 @@
-import React from 'react';
-import { Link ,useNavigate} from "react-router-dom"
-
+import React, { useContext, useEffect ,useState } from 'react';
+import { useNavigate} from "react-router-dom"
+import { LoginContext } from './ContextProvider/Context';
 import HeadOffice from './images/ho.jpg';
 import demo1 from './images/demo1.jpeg';
 import demo2 from './images/demo2.jpeg';
 import './style/Home.css';
 export default function Home() {
+
+    const { logindata, setLoginData } = useContext(LoginContext);
+    console.log(logindata.ValidUserOne) //comment this
     const history = useNavigate();
     const DashboardValid = async () => {
         let token = localStorage.getItem("usersdatatoken");
-        console.log(token)
-
-        const res = await fetch("/validuser", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": token
-            }
+        // console.log("dash");
+        // console.log(token);
+      
+        const res = await fetch("http://localhost:5000/validuser", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": token
+          }
         });
-
+      
         const data = await res.json();
-
-        if (data.status == 401 || !data) {
-            history("*");
+        // console.log(data)
+      
+        if (data.status === 401 || !data) {
+          // handle unauthorized or empty response
+          history("*");
         } else {
-            console.log("user verify");
-            history("/");
+          console.log("user verify");
+          setLoginData(data)
+          history("/");
         }
-    }
+      };
+      
+    useEffect(() => {
+        setTimeout(() => {
+            DashboardValid();
+            // setData(true)
+        }, 2000)
+
+    },[])
   const scrollleft = ()=>{
     var left = document.querySelector(".scroll");
     console.log(left);
@@ -41,7 +56,7 @@ const scrollright =() =>{
   return (
     <div className='divbody'>
       <div className="news">
-        <p> News will be displayed here.   News will be displayed here. News wil be displayed here.  News will be displayed here.  </p>
+        <p> News will be displayed here.   News will be displayed here. News will be displayed here.  News will be displayed here.  </p>
     </div>
     <div className="content-img-container" id="content-img-container">
         <div>

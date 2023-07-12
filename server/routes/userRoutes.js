@@ -9,7 +9,7 @@ const authenticate = require("../controller/authenticate");
 
 router.post("/register", async (req, res) => {
 
-  console.log(req.body)
+    console.log(req.body) //uncomment these
     const { fname, email, password, cpassword } = req.body;
 
     if (!fname || !email || !password || !cpassword) {
@@ -33,7 +33,7 @@ router.post("/register", async (req, res) => {
 
             const storeData = await finalUser.save();
 
-            console.log(storeData);
+            console.log(storeData); //uncomment these
             res.status(201).json({ status: 201, storeData })
         }
 
@@ -50,7 +50,7 @@ router.post("/register", async (req, res) => {
 // user Login
 
 router.post("/login", async (req, res) => {
-    console.log(req.body);
+    console.log(req.body); //uncomment
 
     const { email, password } = req.body;
 
@@ -71,7 +71,6 @@ router.post("/login", async (req, res) => {
 
                 // token generate
                 const token = await userValid.generateAuthtoken();
-                
 
                 // cookiegenerate
                 res.cookie("usercookie",token,{
@@ -97,7 +96,7 @@ router.post("/login", async (req, res) => {
 
 // user valid
 router.get("/validuser",authenticate,async(req,res)=>{
-    console.log("done")
+    // console.log("done")
     try {
         const ValidUserOne = await userdb.findOne({_id:req.userId});
         res.status(201).json({status:201,ValidUserOne});
@@ -109,22 +108,23 @@ router.get("/validuser",authenticate,async(req,res)=>{
 
 // user logout
 
-// router.get("/logout",authenticate,async(req,res)=>{
-//     try {
-//         req.rootUser.tokens =  req.rootUser.tokens.filter((curelem)=>{
-//             return curelem.token !== req.token
-//         });
+router.get("/logout",authenticate,async(req,res)=>{
+    console.log("logout entered")
+    try {
+        req.rootUser.tokens =  req.rootUser.tokens.filter((curelem)=>{
+            return curelem.token !== req.token
+        });
 
-//         res.clearCookie("usercookie",{path:"/"});
+        res.clearCookie("usercookie",{path:"/"});
 
-//         req.rootUser.save();
+        req.rootUser.save();
 
-//         res.status(201).json({status:201})
+        res.status(201).json({status:201})
 
-//     } catch (error) {
-//         res.status(401).json({status:401,error})
-//     }
-// })
+    } catch (error) {
+        res.status(401).json({status:401,error})
+    }
+});
 
 
 module.exports = router;
