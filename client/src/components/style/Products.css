@@ -95,7 +95,7 @@ box-shadow: 10px 10px 54px rgba(0,0,0,0.17);
     margin: 10px;
     border-radius: 5px;
 }
-button:hover
+#container-product-fluid button:hover
 {
     background-color:green !important;
     transition: 0.7s;

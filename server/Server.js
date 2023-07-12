@@ -49,7 +49,7 @@ app.get("/",(req,res)=>{
 //     .catch(error => res.json(error))
 // })
 
-// app.use("/api/products", productRoutes);
+app.use("/api/products", productRoutes);
 
 //listen to port variable
 const PORT = process.env.PORT || 5000;//this or 5000/8080

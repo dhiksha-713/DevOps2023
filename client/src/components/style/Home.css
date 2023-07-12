@@ -109,7 +109,12 @@
     font-size: 20px;
     cursor: pointer;
 }
-button:hover{
+
+.content-img-container button:hover{
+    background-color: orange;
+    transition: all 0.4% ease 0s;
+}
+.icon button:hover{
     background-color: orange;
     transition: all 0.4% ease 0s;
 }

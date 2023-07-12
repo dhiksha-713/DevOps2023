@@ -85,7 +85,7 @@ function Navbar(props) {
             </span>{" "}
           </div>
           <div className="cart" id="top-nav">
-            <Link to="/">
+            <Link to="/cart">
               <i className="fa fa-shopping-cart fa-2x"></i>
               <span className="cartlogo__badge">0</span>
             </Link>
@@ -184,7 +184,7 @@ function Navbar(props) {
             <Link to="/developers" className="developers">
               <li>DEVELOPERS</li>
             </Link>
-            <Link to="/Cart" className="cart-bottom">
+            <Link to="/cart" className="cart-bottom">
               <li>CART</li>
             </Link>
             <Link to="/login" className="login-bottom">
