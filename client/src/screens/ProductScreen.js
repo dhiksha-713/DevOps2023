@@ -22,7 +22,7 @@ export default function ProductScreen({ match, history }) {
     // console.log(product && match && match.params && match.params.id && match.params.id !== product._id)
     // console.log(product)
     console.log(match)
-    console.log(id)
+    // console.log(id)
     // console.log(match.params)
     useEffect(() => {
       if (product && match && match.params && match.params.id && match.params.id !== product._id) {
