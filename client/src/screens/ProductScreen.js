@@ -36,6 +36,7 @@ export default function ProductScreen() {
             <div className="productscreen__left">
             <div className="left__image">
                 <img src={product.imageUrl} alt={product.name} />
+                {/* <img src={product.name==="STIHL chainsaw"?"../componets/images/STIHL MS250 2.png":"../componets/images/STIHL MS250 2.png"} alt={product.name} /> */}
             </div>
             <div className="left__info">
               <p className="left__name">{product.name}</p>
