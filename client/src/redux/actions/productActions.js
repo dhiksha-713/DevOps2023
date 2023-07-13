@@ -34,6 +34,7 @@ export const getProductDetails = (id) => async (dispatch) => {
       payload: data,
     });
   } catch (error) {
+    console.log(error)
     dispatch({
       type: actionTypes.GET_PRODUCT_DETAILS_FAIL,
       payload:

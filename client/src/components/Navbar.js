@@ -126,7 +126,7 @@ function Navbar(props) {
             <div id="myDropdown" className="dropdown-content">
               {logindata.ValidUserOne ? (
                 <>
-                  {/* <Link to="/">Profile</Link> */}
+                  <Link to="/profile">Profile</Link>
                   <Link
                     to="/"
                     onClick={() => {

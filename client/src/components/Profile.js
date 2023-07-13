@@ -5,8 +5,8 @@ import { LoginContext } from './ContextProvider/Context';
 function Profile() {
   const { logindata, setLoginData } = useContext(LoginContext);
   return (
-    <div>
-      
+    <div className='divbody'>
+      hi
     </div>
   )
 }

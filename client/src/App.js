@@ -18,6 +18,7 @@ import Footer from "./components/Footer";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
+import Profile from "./components/Profile";
 function App() {
   
   const [loginForm, setLoginForm] = useState("login");
@@ -49,6 +50,7 @@ function App() {
         <Route path="/HomeScreen" element={<HomeScreen />} exact></Route>
         <Route path="/product/:id" element={<ProductScreen />} exact></Route>
         <Route path="/cart" element={<CartScreen />} exact></Route> 
+        <Route path="/profile" element={<Profile />} exact></Route>
       </Routes>
       {(!isLoginPage && !isRegisterPage) && <Footer />}
     </>
