@@ -60,15 +60,14 @@ export default function ProductScreen() {
               <p>
                 Qty
                 <select value={qty} onChange={(e) => setQty(e.target.value)}>
-                  {[...Array(product.countInStock).keys()].map((x) => (
-                    <option key={x + 1} value={x + 1}>
-                      {x + 1}
-                    </option>
-                  ))}
-                </select>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
               </p>
               <p>
-                <button type="button" onClick={addToCartHandler}>
+                <button className='button_cart' type="button" onClick={addToCartHandler}>
                   Add To Cart
                 </button>
               </p>

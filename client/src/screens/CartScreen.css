@@ -51,6 +51,11 @@
   .cartscreen__right div button:hover {
     opacity: 0.9;
   }
+  .Continue_shop
+  {
+    color: green;
+    font-weight: 500 ;
+  }
   
   @media (max-width: 1320px) {
     .cartscreen {
