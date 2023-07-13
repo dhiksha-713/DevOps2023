@@ -125,11 +125,8 @@ function Navbar(props) {
                 </>
               ) : (
                 <>
-                  <i
-                    onClick={myFunction}
-                    className="fa-solid fa-circle-user fa-2xl dropbtn"
-                  ></i>
-                  <label>Welcome back!</label>
+                  <label onClick={myFunction}
+                    className=" dropbtn">Login/Signup!</label>
                 </>
               )}
               {/* <i onClick={myFunction} className="fa-solid fa-circle-user fa-2xl dropbtn"  ></i> */}

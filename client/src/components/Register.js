@@ -31,7 +31,7 @@ const Register = () => {
         e.preventDefault();
 
         const { fname, email, password, cpassword } = inpval;
-
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (fname === "") {
             toast.warning("fname is required!", {
                 position: "top-center"
@@ -40,9 +40,9 @@ const Register = () => {
             toast.error("email is required!", {
                 position: "top-center"
             });
-        } else if (!email.includes("@")) {
-            toast.warning("includes @ in your email!", {
-                position: "top-center"
+        } else if (!emailPattern.test(email)) {
+            toast.warning("Invalid email format!", {
+              position: "top-center"
             });
         } else if (password === "") {
             toast.error("password is required!", {
@@ -68,7 +68,6 @@ const Register = () => {
         } else {
             // console.log("user registration succesfully done");
 
-
             const data = await fetch("http://localhost:5000/register", {
                 method: "POST",
                 headers: {
@@ -88,6 +87,7 @@ const Register = () => {
                 });
                 setInpval({ ...inpval, fname: "", email: "", password: "", cpassword: "" });
             }
+            
         }
     }
     // async function submit(e){
