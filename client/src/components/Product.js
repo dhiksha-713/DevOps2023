@@ -15,6 +15,7 @@ export default function Product({ imageUrl, description, price, name, productId 
         </p>
 
         <p className='chainsaw_info__price'>₹{price}</p>
+        {/* {console.log("p ---"+productId)} */}
         <Link to={`/product/${productId}`}className='chainsaw_info__button'>View</Link>
        </div>
     </div>

@@ -3,6 +3,7 @@ import { LoginContext } from "./ContextProvider/Context";
 //import person from "./images/person.png";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style/Navbar.css";
+import Logo from './images/logo.png'
 //import FontAwesomeIcon from
 // import PropTypes from 'prop-types'
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -74,7 +75,7 @@ function Navbar(props) {
         <div className="nav-top">
           <div className="logo" id="top-nav">
             <Link to="/" className="home">
-              <img src="" height="60px" alt="logo" />
+              <img src={Logo} height="60px" alt="logo" />
             </Link>
           </div>
           <div className="sayatitle" id="top-nav">
@@ -125,7 +126,7 @@ function Navbar(props) {
             <div id="myDropdown" className="dropdown-content">
               {logindata.ValidUserOne ? (
                 <>
-                  <Link to="/">Profile</Link>
+                  {/* <Link to="/">Profile</Link> */}
                   <Link
                     to="/"
                     onClick={() => {

@@ -1,40 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import "./ProductScreen.css";
-import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 
 // Actions
-import { getProductDetails } from "../redux/actions/productActions";
-import { addToCart } from "../redux/actions/cartActions";
+import { getProductDetails } from '../redux/actions/productActions';
+import { addToCart } from '../redux/actions/cartActions';
 
-import impchainsaw from "../components/images/STIHL MS250 2.png";
-import { Link } from "react-router-dom";
+import impchainsaw from '../components/images/STIHL MS250 2.png';
 
-export default function ProductScreen({ match, history }) {
-    const [qty, setQty] = useState(1);
-    const dispatch = useDispatch();
-  
-    const productDetails = useSelector((state) => state.getProductDetails);
-    const { loading, error, product } = productDetails;
-    /*params property of the match object is undefined. This can occur if the ProductScreen component is rendered before the match object is fully initialized.
+export default function ProductScreen() {
+  const [qty, setQty] = useState(1);
+  const dispatch = useDispatch();
+  const { id } = useParams(); // Access the route parameter 'id'
+  const navigate = useNavigate(); // Access the navigation function
 
-    To handle this situation, you can add a conditional check to ensure that the match object and its params property are defined before accessing them. */
-    // console.log(product && match && match.params && match.params.id && match.params.id !== product._id)
-    // console.log(product)
-    console.log(match)
-    // console.log(id)
-    // console.log(match.params)
-    useEffect(() => {
-      if (product && match && match.params && match.params.id && match.params.id !== product._id) {
-        dispatch(getProductDetails(match.params.id));
-      }
-    }, [dispatch,  match,product]);
-  //if product exsists and product's id is not equal to product in state then dispatch the action "getProductDetails".
-    // const addToCartHandler = () => {
-    //   dispatch(addToCart(product._id, qty));
-    //   history.push(`/cart`);
-    // };
-  
+  const productDetails = useSelector((state) => state.getProductDetails);
+  const { loading, error, product } = productDetails;
+
+  console.log(id);
+
+  useEffect(() => {
+    if (product && id && id !== product._id) {
+      dispatch(getProductDetails(id));
+    }
+  }, [dispatch, id, product]);
+
+  const addToCartHandler = () => {
+    dispatch(addToCart(product._id, qty));
+    navigate('/cart'); // Use the navigate function to navigate to '/cart'
+  };
 
   return (
     <div className='productscreen divbody' >
@@ -73,5 +68,5 @@ export default function ProductScreen({ match, history }) {
             </div>
         </div>
     </div>
-  )
+  );
 }

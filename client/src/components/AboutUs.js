@@ -34,7 +34,7 @@ export default function AboutUs() {
                  </div>
                  <div className="col-md-4" id="a-col">
                     <div className="about-item text-center">
-                     <i className="fa fa-pencil fa-3x" ></i>
+                    <i class="fa-solid fa-pen"></i>
                      <h3>JOURNEY</h3>
                      <hr/>
                      <p>Saya Enterprises started its journey in 2002. We have succesfully completed the last 20 years with utmost customer satisfaction. We have a very hardworking team of staff always aiming to strive for greatness in the domain of agriculture.</p>
