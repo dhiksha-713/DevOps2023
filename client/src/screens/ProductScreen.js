@@ -7,8 +7,6 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import { getProductDetails } from '../redux/actions/productActions';
 import { addToCart } from '../redux/actions/cartActions';
 
-// import impchainsaw from '../components/images/STIHL MS250 2.png';
-
 export default function ProductScreen() {
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
@@ -18,7 +16,7 @@ export default function ProductScreen() {
   const productDetails = useSelector((state) => state.getProductDetails);
   const { loading, error, product } = productDetails;
 
-  console.log(id);
+  // console.log(id);
 
   useEffect(() => {
     if (product && id && id !== product._id) {
@@ -30,7 +28,7 @@ export default function ProductScreen() {
     dispatch(addToCart(product._id, qty));
     navigate('/cart'); // Use the navigate function to navigate to '/cart'
   };
-
+// console.log(product.imageUrl)
   return (
     <div className='productscreen divbody' >
         {loading ? <h2>Loading...</h2> : error ?<h2>{error}</h2>: (
