@@ -119,13 +119,13 @@ function Navbar(props) {
                   <label>
                     Hi,{" "}
                     {logindata.ValidUserOne.fname.charAt(0).toUpperCase() +
-                      logindata.ValidUserOne.fname.slice(1)}
+                      logindata.ValidUserOne.fname.slice(1)}!
                   </label>
                 </>
               ) : (
                 <>
                   <label onClick={myFunction}
-                    className=" dropbtn">Login/Signup!</label>
+                    className=" dropbtn">Login/Signup</label>
                 </>
               )}
               {/* <i onClick={myFunction} className="fa-solid fa-circle-user fa-2xl dropbtn"  ></i> */}

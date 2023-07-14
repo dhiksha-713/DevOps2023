@@ -38,8 +38,8 @@ export default function Developers() {
         <div className="devs" id="d4">
             <img src={Anita} />
             <div className="d-details">
-                <p>CHINMAYI</p>
-                <h4> 1BM21CS045</h4>
+                <p>ANITHA K J</p>
+                <h4> 1BM22CS401</h4>
             </div>
          </div>
     </section>
