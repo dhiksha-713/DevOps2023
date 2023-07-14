@@ -35,6 +35,17 @@ export default function CartScreen() {
       .reduce((price, item) => price + item.price * item.qty, 0)//starting price is 0
       .toFixed(2);
   };
+  const openPopup = () =>{
+   
+    if(window.confirm("Are you sure you want to continue\nPlease confirm!!")){
+    alert("Thank you for shopping")
+    }
+    else
+    {
+        alert("Your order is cancelled");
+    }
+  }
+
   return (
     <>
     <div className="cartscreen divbody">
@@ -58,7 +69,7 @@ export default function CartScreen() {
                 <p>₹{getCartSubTotal()}</p> 
             </div>
             <div>
-                <button>Proceed To Checkout</button>
+                <button onClick={openPopup}>Proceed To Checkout</button>
             </div>
         </div>
       </div>

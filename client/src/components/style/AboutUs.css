@@ -35,7 +35,7 @@
     height: 300px;
 }
 .about-item{
-    height: 350px;
+    height: 400px;
     margin-bottom: 20px;
     margin-top: 20px;
     background-color: white;
@@ -90,4 +90,8 @@
     height: 100%;
     background-size: cover;
     background-position: center;
+}
+
+.about-item{
+    overflow: hidden;
 }
