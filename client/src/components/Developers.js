@@ -2,6 +2,7 @@ import React from 'react';
 import Chinmayi from './images/chinmayi.jpeg';
 import Deeksha from './images/deeksha.jpeg';
 import Dhiksha from './images/dhiksha.jpeg';
+import Anita from './images/anita.jpeg'
 import './style/Developers.css';
 
 export default function Developers() {
@@ -34,6 +35,13 @@ export default function Developers() {
                 <h4>1BM21CS055</h4>
             </div>
         </div>
+        <div className="devs" id="d4">
+            <img src={Anita} />
+            <div className="d-details">
+                <p>CHINMAYI</p>
+                <h4> 1BM21CS045</h4>
+            </div>
+         </div>
     </section>
     </center>
     </div>

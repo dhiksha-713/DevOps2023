@@ -20,6 +20,7 @@
     margin-right:15px;
   }
   .left__image {
+    justify-content: center;
     margin: 1rem;
     flex: 0.6;
   }

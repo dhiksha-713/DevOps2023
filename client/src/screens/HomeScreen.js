@@ -38,7 +38,6 @@ const HomeScreen = () => {
             productId={product._id} />
           )
         )}
-        {console.log(products)}
       </div>
     </div>
   );

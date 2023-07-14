@@ -107,7 +107,6 @@ function Navbar(props) {
                     Hi,{" "}
                     {logindata.ValidUserOne.fname.charAt(0).toUpperCase() +
                       logindata.ValidUserOne.fname.slice(1)}
-                    !
                   </label>
                 </>
               ) : (
@@ -126,7 +125,7 @@ function Navbar(props) {
             <div id="myDropdown" className="dropdown-content">
               {logindata.ValidUserOne ? (
                 <>
-                  <Link to="/profile">Profile</Link>
+                  {/* <Link to="/profile">Profile</Link> */}
                   <Link
                     to="/"
                     onClick={() => {
