@@ -1,6 +1,8 @@
 import React from 'react'
 import './style/Footer.css'
 // import PropTypes from 'prop-types'
+import { Link } from "react-router-dom";
+
 
 export default function Footer() {
   return (
@@ -9,12 +11,12 @@ export default function Footer() {
             <div className="f_footer-links">
                 <div className="f_footer_links_div">
                     <h5>Company</h5>
-                    <a href="AboutUs.js">
-                        <p>About Us</p>
-                    </a>
-                    <a href="/">
+                    <Link to="/about">
+                        <p>Changed</p>
+                    </Link>
+                    <Link to="/products">
                         <p>Our Services</p>
-                    </a>
+                    </Link>
                 </div>
                 <div className="f_footer_links_div">
                     <h5>Get Help</h5>

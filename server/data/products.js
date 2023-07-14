@@ -7,7 +7,7 @@ const products = [
       imageUrl:"https://imgtr.ee/images/2023/07/13/104446a5f0c0c84cfd65212511483f5c.png",
       description:
         "Weight: 4.6 Kg Displacement: 45.4 CC Engine Power: 2.3 kw HP: 3.1 HP Type of Product: Petrol Chain Saw Model No: MS 250 Guide Bar Length: 20 Inch Saw Chain Pitch: 3/8 P",
-      price: 15000,
+      price: 14000,
     },
     {
       name: "OM GS35 shadow",
@@ -23,7 +23,7 @@ const products = [
       "https://imgtr.ee/images/2023/07/13/8368622ec382b9dd9d240073398b8045.png",
       description:
         "Displacement: 52 CC Rated Power: 2.2kw/8000rpmnFuel Tank Capacity: 550ml Oil Tank Capacity: 260ml Idle Speed: 3000rpm",
-      price: 15000,
+      price: 18000,
     }
   ];
   
