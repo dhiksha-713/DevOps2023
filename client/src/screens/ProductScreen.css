@@ -78,9 +78,9 @@
     border-radius: 5px;
     
   }
-  .right__info p > button {
+  /* .right__info p > button {
     display: none !important;
-  }
+  } */
   
   .right__info select {
     padding: 10px 16px;

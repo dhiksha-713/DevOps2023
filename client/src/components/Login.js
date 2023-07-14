@@ -31,14 +31,14 @@ const Login = () => {
         e.preventDefault();
 
         const { email, password } = inpval;
-
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (email === "") {
-            toast.error("email is required!", {
+            toast.error("Email is required!", {
                 position: "top-center"
             });
-        } else if (!email.includes("@")) {
-            toast.warning("includes @ in your email!", {
-                position: "top-center"
+        } else if (!emailPattern.test(email)) {
+            toast.warning("Invalid email format!", {
+              position: "top-center"
             });
         } else if (password === "") {
             toast.error("password is required!", {
@@ -70,6 +70,11 @@ const Login = () => {
                 history("/")
                 setInpval({...inpval,email:"",password:""});
             }
+            else {
+                toast.error("Invalid email or password!", {
+                  position: "top-center"
+                });
+              }
         }
     }
 

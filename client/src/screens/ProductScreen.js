@@ -30,12 +30,15 @@ export default function ProductScreen() {
   };
 // console.log(product.imageUrl)
   return (
+    // const imageUrl = process.env.PUBLIC_URL + '/images/my-image.jpg';
+
     <div className='productscreen divbody' >
         {loading ? <h2>Loading...</h2> : error ?<h2>{error}</h2>: (
             <>
             <div className="productscreen__left">
             <div className="left__image">
-                <img src={product.imageUrl} alt={product.name} />
+                <img src={process.env.PUBLIC_URL+product.imageUrl} alt={product.name} />
+                {/* <img src={product.name==="STIHL chainsaw"?"../componets/images/STIHL MS250 2.png":"../componets/images/STIHL MS250 2.png"} alt={product.name} /> */}
             </div>
             <div className="left__info">
               <p className="left__name">{product.name}</p>

@@ -8,10 +8,21 @@ import Logo from './images/logo.png'
 // import PropTypes from 'prop-types'
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 
 function Navbar(props) {
   // const { logindata, setLoginData } = useContext(LoginContext);
   //   console.log(logindata.ValidUserOne)
+
+  //for cart stuff
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+
+  const getCartCount = () => {
+    return cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
+  };  //for cart stuff
+
   const { logindata, setLoginData } = useContext(LoginContext);
 
   const history = useNavigate();
@@ -69,6 +80,8 @@ function Navbar(props) {
       }
     }
   };
+
+  
   return (
     <>
       <nav className="nav">
@@ -88,7 +101,7 @@ function Navbar(props) {
           <div className="cart" id="top-nav">
             <Link to="/cart">
               <i className="fa fa-shopping-cart fa-2x"></i>
-              <span className="cartlogo__badge">0</span>
+              <span className="cartlogo__badge">{getCartCount()}</span>
             </Link>
           </div>
 
@@ -111,11 +124,8 @@ function Navbar(props) {
                 </>
               ) : (
                 <>
-                  <i
-                    onClick={myFunction}
-                    className="fa-solid fa-circle-user fa-2xl dropbtn"
-                  ></i>
-                  <label>Welcome back!</label>
+                  <label onClick={myFunction}
+                    className=" dropbtn">Login/Signup!</label>
                 </>
               )}
               {/* <i onClick={myFunction} className="fa-solid fa-circle-user fa-2xl dropbtn"  ></i> */}
