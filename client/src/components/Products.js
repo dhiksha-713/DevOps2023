@@ -19,7 +19,7 @@ export default function Products() {
         <div className="p-details">
           <h2>{item.product_name}</h2>
           <h4>{item.description}</h4>
-          <Link to="/HomeScreen"><button type="button">See more</button></Link>
+          <Link to={`/HomeScreen/${item.product_name}`}><button type="button">See more</button></Link>
         </div>
       </div>
     ));

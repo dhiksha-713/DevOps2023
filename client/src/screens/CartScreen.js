@@ -53,7 +53,7 @@ export default function CartScreen() {
           <h2>Shopping Cart</h2>
           {cartItems.length===0 ? (
             <div>
-              Your cart is empty!  <Link to="/HomeScreen" className='Continue_shop'>Click here to Continue Shopping...</Link>
+              Your cart is empty!  <Link to="/products" className='Continue_shop'>Click here to Continue Shopping...</Link>
             </div>
           ) : cartItems.map(item => (
             <CartItem  key={item.product}
