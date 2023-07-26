@@ -47,7 +47,7 @@ function App() {
         <Route path="/branch" element={<Branches />} exact></Route>
         <Route path="/gallery" element={<Gallery />} exact></Route>
         <Route path="/developers" element={<Developers />} exact></Route>
-        <Route path="/HomeScreen" element={<HomeScreen />} exact></Route>
+        <Route path="/HomeScreen/:productName" element={<HomeScreen />} exact></Route>
         <Route path="/product/:id" element={<ProductScreen />} exact></Route>
         <Route path="/cart" element={<CartScreen />} exact></Route> 
         <Route path="/profile" element={<Profile />} exact></Route>

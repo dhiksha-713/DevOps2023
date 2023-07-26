@@ -12,7 +12,7 @@ export default function Footer() {
                 <div className="f_footer_links_div">
                     <h5>Company</h5>
                     <Link to="/about">
-                        <p>Changed</p>
+                        <p>About Us</p>
                     </Link>
                     <Link to="/products">
                         <p>Our Services</p>

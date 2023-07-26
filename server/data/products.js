@@ -8,6 +8,7 @@ const products = [
       description:
         "Weight: 4.6 Kg Displacement: 45.4 CC Engine Power: 2.3 kw HP: 3.1 HP Type of Product: Petrol Chain Saw Model No: MS 250 Guide Bar Length: 20 Inch Saw Chain Pitch: 3/8 P",
       price: 14000,
+      category: "Chainsaw",
     },
     {
       name: "OM GS35 shadow",
@@ -16,6 +17,7 @@ const products = [
       description:
         "Power/Displacement: 2.0 HP - 1.5 kW/38.9 cm³ Bar length (nose): 35-41 cm, 14''-16'', (sprocket) Chain (pitch x gauge): 3/8''x.050'' Oil Pump: automatic, zero flow rate at idle speed Oil/fuel tank capacity: 0.26 L/0.36 L Sound pressure/power level: 99.6/110.4 dB(A) Lh/rh vibration level: 6.0/6.7 m/s² Dry weight without bar and chain: 4.6 kg",
       price: 15099,
+      category: "Chainsaw",
     },
     {
       name: "Jag CS",
@@ -24,11 +26,18 @@ const products = [
       description:
         "Displacement: 52 CC Rated Power: 2.2kw/8000rpmnFuel Tank Capacity: 550ml Oil Tank Capacity: 260ml Idle Speed: 3000rpm",
       price: 18000,
+      category: "Chainsaw",
+    },
+    {
+      name: "Jagvar Brush cutter",
+      imageUrl:
+      "https://imgtr.ee/images/2023/07/26/9ee174e2e604b9218c0aa78b6708940c.png",
+      description:
+        "2 Stroke 52 cc is a Fuel-efficient, lightweight, Easy start. Displacement: 52CC 2-STROKE, Shaft Dia. - 28MM, Shaft Length. - 1.6M, RPM - 3000 +200 At Ideal Speed",
+      price: 20000,
+      category: "Brushcutter",
     }
   ];
   
   module.exports = products;
-  
-  
-  
   
