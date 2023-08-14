@@ -1,3 +1,6 @@
-node_modeules
-Dockerfile
-.git;
+node_modules
+npm-debug.log
+build
+.git
+README.md
+.gitignore

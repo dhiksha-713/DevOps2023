@@ -1,13 +1,15 @@
-FROM node:18.13.0
+FROM node:alpine AS development
 
-WORKDIR /home/app
+ENV NODE_ENV development
 
-COPY package.json .
+WORKDIR /react-app
+
+COPY ./package.json /react-app
 
 RUN npm install
 
 COPY . .
 
-EXPOSE 80
-
 CMD ["node", "Server.js"]
+
+
